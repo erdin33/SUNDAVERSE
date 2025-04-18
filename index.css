@@ -1,0 +1,288 @@
+/* Reset CSS */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Poppins';
+    background-image: url(batik1.png);
+    background-size: 100%;
+    background-color: #F5EFFF;
+    line-height: 1.6;
+}
+
+/* Header */
+.navbar {
+    background-color: #1E3A5F;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 15px 80px;
+}
+
+.logo span {
+    color: #D4A017;
+}
+
+.logo a {
+    color: #fff;
+    text-decoration: none;
+    font-weight: 800;
+    font-size: 24px;
+}
+
+.menu {
+    list-style: none;
+    display: flex;
+    gap: 20px;
+}
+
+.menu li a:hover {
+    color: #D4A017; /* Gold */
+}
+
+.navbar ul {
+    list-style: none;
+    display: flex;
+    justify-content: center;
+    gap: 60px;
+}
+
+.navbar li a {
+    color: #fff;
+    text-decoration: none;
+    font-weight: 300;
+    transition: color 0.3s ease;
+}
+
+.navbar li a.active {
+    font-weight: bold;
+    text-decoration: underline;
+}
+
+.navbar li a:hover {
+    color: #D4A017; /* Gold */
+}
+
+/* Section Atas */
+#satu-home {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 60px 150px;
+    background-color: #1E3A5F;
+    border-bottom-right-radius: 100px;
+    border-bottom-left-radius: 100px;
+    color: #fff;
+}
+
+.satu-content h1 {
+    font-size: 36px;
+    margin-bottom: 15px;
+}
+
+.satu-content p {
+    font-size: 20px;
+    margin-bottom: 15px;
+}
+
+.satu-content span {
+    font-weight: 1000;
+}
+
+.satu-content span1 {
+    color: #D4A017;
+}
+
+.satu-content button {
+    background-color: #D4A017;
+    color: #ffff;
+    border: none;
+    padding: 10px 30px;
+    font-family: 'Poppins';
+    font-weight: 600;
+    font-size: 16px;
+    border-radius: 15px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.satu-content button:hover {
+    background-color: #D4A017;
+}
+
+.satu-image img {
+    width: 420px;
+    height: auto;
+    margin-top: -45px;
+}
+
+/* Section Tengah */
+.dua-home {
+    padding: 130px;
+    background-image: url('wave-pattern.png'); /* Wave pattern background */
+    background-repeat: repeat-x;
+    background-position: center bottom;
+    justify-content: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.dua-content h2 {
+    font-size: 32px;
+    margin-bottom: 30px;
+    align-items: center;
+    text-align: center;
+    text-decoration: underline 2px;
+}
+
+.dua-border {
+    max-width: 1200px;
+    border: 4px solid #E4C95D;
+    background-color: #F5EFFF;
+    padding: 10px 50px;
+    border-radius: 15px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.dua-border h3 {
+    font-size: 1rem;
+    margin-bottom: 10px;
+    margin-top: 10px;
+    display: inline-block;
+    padding: 5px 25px; /* Ruang di sekitar teks */
+    background-color: #1E3A5F; /* Warna latar belakang biru tua */
+    color: #fff; /* Warna teks putih */
+    text-align: center; /* Pusatkan teks */
+    text-decoration: none; /* Menghilangkan garis bawah jika digunakan sebagai link */
+    border-radius: 15px; /* Sudut melengkung */
+    transition: background-color 0.3s ease; /* Efek transisi saat hover */
+}
+
+.dua-border .paraghrap {
+    line-height: 1.6;
+    margin-bottom: 10px;
+}
+
+.dua-border p {
+    font-size: 20px;
+    text-align: justify;
+}
+
+/* Section Bawah */
+.tiga-home {
+    background-color: #E4C95D; /* Gold */
+    padding: 90px 120px;
+}
+
+.tiga-content p {
+    font-size: 20px;
+    margin-bottom: 90px;
+    text-align: justify;
+}
+
+.tiga-image {
+    display: flex;
+    justify-content: space-around;
+    margin-top: 20px;
+}
+
+.tiga-image img {
+    width: 341px;
+    height: 259px;
+    border-radius: 15px;
+}
+
+.tiga-image p {
+    text-align: center;
+    font-weight: bold;
+    margin-top: 15px;
+}
+/* Section bawah kedua */
+.sblm-content p {
+    font-size: 20px;
+    padding: 40px 60px;
+    text-align: justify;
+}
+
+.sblm-content p a {
+    text-decoration: underline;
+    color: #D4A017;
+}
+
+/* Footer */
+.footer {
+    background-color: #1E3A5F;
+    color: #fff;
+    padding: 70px 150px;
+    text-align: center;
+}
+
+.footer .judul h2 {
+    font-size: 24px;
+    margin-bottom: 20px;
+    font-weight: 800;
+}
+
+.footer .judul span {
+    color: #D4A017;
+}
+
+.footer .link-kosong {
+    font-size: 18px;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    gap: 50px;
+    border-bottom: 2px solid #262626; /* Garis putih tipis */
+    padding-bottom: 50px;
+    margin: 50px 100px;
+}
+
+.footer .lokasi p {
+    font-size: 18px;
+    font-weight: 100;
+    border-bottom: 2px solid #262626; /* Garis putih tipis */
+    padding-bottom: 50px;
+    margin: 50px 100px;
+}
+.footer .copyright p {
+    font-size: 18px;
+    font-weight: 100;
+}
+
+/* General Styling */
+section {
+    padding: 50px;
+}
+
+h1, h2, h3 {
+    font-weight: 600;
+}
+
+p {
+    font-size: 1rem;
+}
+
+button a {
+    text-decoration: none;
+    color: inherit;
+}
+
+/*responsiv*/
+@media (max-width: 768px) {
+    .navbar {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+    .menu {
+        margin-top: 10px;
+    }
+    .menu li {
+        margin-bottom: 5px;
+    }
+}

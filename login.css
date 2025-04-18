@@ -1,0 +1,188 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+
+/* Global Styles */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Arial', sans-serif;
+}
+
+body {
+    overflow: hidden;
+    height: 100vh;
+    font-family: 'Poppins', Verdana, Geneva, Tahoma, sans-serif;
+}
+
+.container {
+    display: flex;
+    height: 100vh;
+}
+
+/* Left sidebar with illustration */
+.sidebar {
+    width: 40%;
+    background-color: #f8f7fc;
+    position: relative;
+    overflow: hidden;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.sidebar::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-image: url('./images/background.png');
+    opacity: 0.2;
+    z-index: 0;
+}
+
+.illustration {
+    position: relative;
+    width: 50%; /* Reduced size from 60% to 50% */
+    z-index: 1;
+    /* Removed absolute positioning */
+    /* Center vertically to match form position */
+    margin: 0 auto;
+}
+
+/* Right side - Login Form */
+.login-form {
+    width: 60%;
+    background-color: #1e3a5f;
+    color: white;
+    padding: 5% 10%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+h2 {
+    font-size: 28px;
+    font-weight: bold;
+    margin-bottom: 10px;
+    text-align: center;
+}
+
+.welcome-text {
+    font-size: 18px;
+    text-align: center;
+    margin-bottom: 10px;
+}
+
+/* Make SundaVerse text yellow */
+h2 span, .welcome-text span {
+    color: #D4A017;
+}
+
+form {
+    margin-top: 40px;
+    width: 100%;
+}
+
+label {
+    display: block;
+    margin-bottom: 8px;
+    font-size: 16px;
+}
+
+input {
+    width: 100%;
+    padding: 15px;
+    border-radius: 8px;
+    border: none;
+    margin-bottom: 20px;
+    font-size: 14px;
+}
+
+.login-btn {
+    background-color: #D4A017;
+    color: white;
+    width: 100%;
+    padding: 15px;
+    border: none;
+    border-radius: 8px;
+    font-size: 16px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+.login-btn:hover {
+    background-color: #c28b12;
+}
+
+.forgot-password {
+    text-align: center;
+    margin-top: 15px;
+}
+
+.forgot-password a {
+    color: white;
+    text-decoration: none;
+    cursor: pointer;
+    transition: color 0.3s ease;
+}
+
+.forgot-password a:hover {
+    color: #ecba3b;
+}
+
+.signup-link {
+    text-align: center;
+    margin-top: 40px;
+}
+
+.signup-link a {
+    color: #e4a419;
+    text-decoration: none;
+    font-weight: bold;
+    cursor: pointer;
+    transition: color 0.3s ease;
+}
+
+.signup-link a:hover {
+    color: white;
+}
+
+/* For the Sundanese script */
+@font-face {
+    font-family: 'Poppins';
+    src: url('path/to/poppins.woff2') format('woff2'),
+         url('path/to/poppins.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+}
+
+.welcome-text:nth-child(2) {
+    font-family: 'Sundanese', sans-serif;
+    font-size: 20px;
+    margin-bottom: 5px;
+}
+
+/* Responsive design */
+@media screen and (max-width: 768px) {
+    .container {
+        flex-direction: column;
+    }
+    
+    .sidebar {
+        width: 100%;
+        height: 30vh;
+    }
+    
+    .login-form {
+        width: 100%;
+        height: 70vh;
+        padding: 5%;
+    }
+    
+    .illustration {
+        width: 30%;
+    }
+}
