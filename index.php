@@ -1,12 +1,7 @@
-<<?php
-session_start(); // Mulai session
-include 'koneksi.php'; // Pastikan koneksi berhasil
-
-$isLoggedIn = isset($_SESSION['id_user']);  // Periksa apakah user sudah login
-
-echo "<pre>";
-print_r($_SESSION);  // Debug untuk menampilkan session
-echo "</pre>";
+<?php
+include 'koneksi.php'; 
+session_start(); // WAJIB di paling atas
+$isLoggedIn = isset($_SESSION['user_id']); // Cek apakah user sudah login
 ?>
 
 <!DOCTYPE html>
