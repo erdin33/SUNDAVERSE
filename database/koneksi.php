@@ -1,5 +1,5 @@
 <?php
-$host = 'localhost';     // Host database
+$host = '127.0.0.1:5500';     // Host database
 $username = 'root';      // Username database
 $password = '';          // Password database
 $database = 'sundaverse';   // Nama database
