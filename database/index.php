@@ -16,7 +16,7 @@ echo "</pre>";
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>SundaVerse</title>
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="index.css">
+    <link rel="stylesheet" href="../index.css">
 </head>
 <body>
     <!-- Navbar -->
@@ -39,7 +39,7 @@ echo "</pre>";
             <p>Diajar basa Sunda kiwari langkung gampang!<br>ku <span><span1>Sunda</span1>Verse</span>, anjeun tiasa latihan aksara Sunda, terjemahan,<br>jeung kalimah sapopoe.</p>
             <?php if (!$isLoggedIn): ?>
                 <div>
-                    <button><a href="login.php">Masuk / Login!</a></button>
+                    <button><a href="../login.html">Masuk / Login!</a></button>
                 </div>
             <?php endif; ?>
         </div>

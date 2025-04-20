@@ -1,6 +1,7 @@
 <?php
 // login.php
-session_start(); // Mulai session
+session_start(); 
+include 'koneksi.php'; // Mulai session
 
 // Ambil data dari form
 $username = $_POST['nama'];
@@ -15,7 +16,7 @@ if (mysqli_num_rows($result) === 1) {
 
     // Cek apakah password cocok
     if (password_verify($password, $user['password'])) {
-        $_SESSION['id_user'] = $user['id'];  // Menyimpan id_user dari database
+        $_SESSION['id_user'] = $user['id_user'];  // Menyimpan id_user dari database
         $_SESSION['username'] = $username;   // Menyimpan username
         echo "Login berhasil!"; // Debug: Tampilkan jika login berhasil
         header("Location: ../database/index.php");  // Redirect setelah login sukses
