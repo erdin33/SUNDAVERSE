@@ -1,0 +1,213 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap');
+
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Poppins', Verdana, Geneva, Tahoma, sans-serif;
+}
+
+html, body {
+    height: 100%;
+    min-height: 100vh;
+}
+
+body {
+    position: relative;
+    background-color: #f8f7fc;
+    background-image: linear-gradient(rgba(255, 255, 255, 0.8), rgba(255, 255, 255, 0.8)), url("../images/");
+    background-size: cover;
+    background-attachment: fixed;
+    background-position: center;
+    background-repeat: no-repeat;
+    display: flex;
+    flex-direction: column;
+}
+
+/* Header */
+.navbar {
+    background-color: #1E3A5F;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 15px 80px;
+}
+
+.logo span {
+    color: #D4A017;
+}
+
+.logo a {
+    color: #fff;
+    text-decoration: none;
+    font-weight: 800;
+    font-size: 24px;
+}
+
+.menu {
+    list-style: none;
+    display: flex;
+    gap: 20px;
+}
+
+.menu li a:hover {
+    color: #D4A017; /* Gold */
+}
+
+.navbar ul {
+    list-style: none;
+    display: flex;
+    justify-content: center;
+    gap: 60px;
+}
+
+.navbar li a {
+    color: #fff;
+    text-decoration: none;
+    font-weight: 300;
+    transition: color 0.3s ease;
+}
+
+.navbar li a.active {
+    font-weight: bold;
+    text-decoration: underline;
+}
+
+.navbar li a:hover {
+    color: #D4A017; /* Gold */
+}
+
+.container {
+    width: 90%;   /* Increased from max-width: 800px */
+    max-width: 1000px;  /* Increased maximum width */
+    margin: 20px auto;
+    padding: 20px;
+    flex: 1 0 auto;
+}
+
+.profile-card {
+    background-color: white;
+    border-radius: 10px;
+    padding: 40px;   /* Increased padding */
+    text-align: center;
+    margin-bottom: 30px;  /* Increased margin */
+    box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+}
+
+.profile-picture {
+    width: 150px;   /* Increased size */
+    height: 150px;  /* Increased size */
+    border-radius: 50%;
+    margin: 0 auto 20px;  /* Increased bottom margin */
+    background-color: #e0e0e0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border: 5px solid #e9cb4f;
+}
+
+.profile-picture svg {
+    width: 70px;   /* Increased size */
+    height: 70px;  /* Increased size */
+}
+
+.username {
+    color: #888;
+    margin-top: 10px;
+    font-size: 18px;  /* Increased font size */
+}
+
+.score-badge {
+    background-color: #e9cb4f;
+    color: #333;
+    padding: 12px 20px;  /* Increased padding */
+    border-radius: 20px;
+    display: inline-block;
+    margin-top: 20px;
+    font-weight: bold;
+    font-size: 16px;  /* Increased font size */
+}
+
+.menu-card {
+    background-color: white;
+    border-radius: 10px;
+    padding: 20px 25px;  /* Increased padding */
+    display: flex;
+    align-items: center;
+    margin-bottom: 20px;  /* Increased margin */
+    text-decoration: none;
+    color: #333;
+    font-weight: bold;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+    font-size: 16px;  /* Increased font size */
+}
+
+.menu-icon {
+    margin-right: 20px;  /* Increased margin */
+    width: 30px;  /* Increased size */
+    height: 30px;  /* Increased size */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.menu-icon svg {
+    width: 30px;  /* Increased size */
+    height: 30px;  /* Increased size */
+}
+
+footer {
+    background-color: #1e365c;
+    color: white;
+    padding: 20px;
+    text-align: center;
+    flex-shrink: 0;
+}
+
+.footer-logo {
+    font-size: 20px;
+    font-weight: bold;
+    margin-bottom: 20px;
+    color: #e9cb4f;
+}
+
+.footer-links {
+    margin: 20px 0;
+    display: flex;
+    justify-content: center;
+}
+
+.footer-links a {
+    color: white;
+    text-decoration: none;
+    margin: 0 15px;
+}
+
+.location {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 20px 0;
+    color: #e9cb4f;
+}
+
+.location-icon {
+    margin-right: 10px;
+}
+
+.divider {
+    height: 1px;
+    background-color: rgba(255,255,255,0.2);
+    margin: 20px 0;
+}
+
+.copyright {
+    color: rgba(255,255,255,0.7);
+    font-size: 14px;
+    margin-top: 20px;
+}
+
+.sunda {
+    color: #e9cb4f;
+}
