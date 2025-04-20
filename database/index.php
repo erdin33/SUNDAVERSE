@@ -16,7 +16,7 @@ echo "</pre>";
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>SundaVerse</title>
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="index.css">
+    <link rel="stylesheet" href="../style/index.css">
 </head>
 <body>
     <!-- Navbar -->
@@ -44,7 +44,7 @@ echo "</pre>";
             <?php endif; ?>
         </div>
         <div class="satu-image">    
-            <img src="foto-home.png" alt="seni Sunda">
+            <img src="../images/foto-home.png" alt="seni Sunda">
         </div>
     </section>
 
@@ -74,15 +74,15 @@ echo "</pre>";
         </div>
         <div class="tiga-image">
             <div class="image1">
-                <img src="candi1.jpeg" alt="Candi Bladongan">
+                <img src="../images/candi/candi1.jpeg" alt="Candi Bladongan">
                 <p><b>Candi Bladongan</b></p>
             </div>
             <div class="image2">
-                <img src="candi2.jpeg" alt="Candi Cangkuang">
+                <img src="../images/candi/candi2.jpeg" alt="Candi Cangkuang">
                 <p><b>Candi Cangkuang</b></p>
             </div>
             <div class="image3">
-                <img src="candi3.png" alt="Candi Jiwa">
+                <img src="../images/candi/candi3.png" alt="Candi Jiwa">
                 <p><b>Candi Jiwa</b></p>
             </div>
         </div>
