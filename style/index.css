@@ -13,13 +13,15 @@ body {
     line-height: 1.6;
 }
 
-/* Header */
+/* Navbar styles - Diperbesar */
 .navbar {
-    background-color: #1E3A5F;
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding: 15px 80px;
+    padding: 3rem 5%; /* Padding diperbesar */
+    background-color: #1e3a5f;
+    color: white;
+    height: 80px; /* Tinggi tetap */
 }
 
 .logo span {
@@ -27,44 +29,52 @@ body {
 }
 
 .logo a {
-    color: #fff;
+    font-size: 2rem; /* Ukuran logo diperbesar */
+    font-weight: 700;
+    color: white;
     text-decoration: none;
-    font-weight: 800;
-    font-size: 24px;
 }
 
 .menu {
-    list-style: none;
     display: flex;
-    gap: 20px;
-}
-
-.menu li a:hover {
-    color: #D4A017; /* Gold */
-}
-
-.navbar ul {
     list-style: none;
-    display: flex;
-    justify-content: center;
-    gap: 60px;
 }
 
-.navbar li a {
-    color: #fff;
+.menu li {
+    margin-left: 2rem; /* Jarak antar menu diperbesar */
+}
+
+.menu a {
+    color: white;
     text-decoration: none;
-    font-weight: 300;
+    font-weight: 500;
     transition: color 0.3s ease;
+    font-size: 1.2rem; /* Ukuran teks menu diperbesar */
+    padding: 0.5rem 1rem; /* Padding tambahan */
 }
 
-.navbar li a.active {
-    font-weight: bold;
-    text-decoration: underline;
+/* Tambahkan style untuk menu aktif */
+.menu a.active {
+    color: #f8cb4a !important;
+    position: relative;
 }
 
-.navbar li a:hover {
-    color: #D4A017; /* Gold */
+.menu a.active::after {
+    content: '';
+    position: absolute;
+    bottom: -8px;
+    left: 0;
+    width: 100%;
+    height: 3px;
+    background-color: #f8cb4a;
+    border-radius: 2px;
 }
+
+/* Modifikasi hover state */
+.menu a:hover {
+    color: #D4A017 !important;
+}
+
 
 /* Section Atas */
 #satu-home {

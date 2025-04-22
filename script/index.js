@@ -1,11 +1,10 @@
-document.addEventListener("DOMContentLoaded", () => {
-    const homeLink = document.getElementById("home-link");
 
-    // Mendapatkan URL saat ini
-    const currentUrl = window.location.href;
-
-    // Memeriksa apakah pengguna berada di halaman utama
-    if (currentUrl.includes("index.html")) {
-        homeLink.classList.add("active");
+// Deteksi halaman aktif
+const currentPage = window.location.pathname.split('/').pop();
+document.querySelectorAll('.menu a').forEach(link => {
+    if(link.getAttribute('href') === currentPage) {
+        link.classList.add('active');
     }
 });
+
+
