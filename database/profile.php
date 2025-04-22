@@ -1,10 +1,19 @@
+<?php 
+session_start();
+include 'cek_user.php'; 
+
+if (!$isLoggedIn) {
+    header("Location: ../login.html");
+    exit();
+}?>
+    
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>SundaVerse - Profile</title>
-    <link rel="stylesheet" href="./style/profile.css">
+    <link rel="stylesheet" href="../style/profile.css">
 </head>
 <body>
     <nav class="navbar">
@@ -27,7 +36,7 @@
                 </svg>
             </div>
             <h2>User</h2>
-            <p class="username">@username</p>
+            <p class="username">@<?= $_SESSION['username'] ?></p>
             <div class="score-badge">Total skor: -</div>
         </div>
         

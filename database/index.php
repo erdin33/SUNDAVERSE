@@ -1,9 +1,8 @@
 <<?php
 session_start(); // Mulai session
 include 'koneksi.php'; // Pastikan koneksi berhasil
-
-$isLoggedIn = isset($_SESSION['id_user']);  // Periksa apakah user sudah login
-
+include 'cek_user.php'; // Cek apakah user sudah login
+session_destroy(); 
 echo "<pre>";
 print_r($_SESSION);  // Debug untuk menampilkan session
 echo "</pre>";
@@ -32,7 +31,7 @@ echo "</pre>";
             <li><a href="index.php" id="home-link">Home</a></li>
             <li><a href="aksara.html">Aksara</a></li>
             <li><a href="quiz.html">Quiz</a></li>
-            <li><a href="../profile.html">Profile</a></li>
+            <li><a href="profile.php">Profile</a></li>
         </ul>
     </nav>
 
@@ -45,7 +44,11 @@ echo "</pre>";
                 <div>
                     <button><a href="../login.html">Masuk / Login!</a></button>
                 </div>
+            <?php else: ?>
+                <p>Halo, <?= htmlspecialchars($username) ?>!</p>
             <?php endif; ?>
+
+
         </div>
         <div class="satu-image">    
             <img src="../images/foto-home.png" alt="seni Sunda">
