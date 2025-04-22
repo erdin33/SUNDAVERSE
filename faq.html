@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SundaVerse - FAQ</title>
+    <link rel="stylesheet" href="./style/faq.css">
+</head>
+<body>
+    <!-- Navbar -->
+    <nav class="navbar">
+        <div class="logo">
+            <a href="index.html">Sunda<span>Verse</span></a>
+        </div>
+        <ul class="menu">
+            <li><a href="index.html" >Home</a></li>
+            <li><a href="aksara.html">Aksara</a></li>
+            <li><a href="quiz.html">Quiz</a></li>
+            <li><a href="profile.html" class="active">Profile</a></li>
+        </ul>
+    </nav>
+
+    <!-- FAQ Section -->
+    <section class="faq-section">
+        <div class="container">
+            <div class="accordion">
+                <div class="accordion-item">
+                    <div class="accordion-header">
+                        <h3>Apa itu website Quiz Bahasa Sunda?</h3>
+                        <span class="icon">▼</span>
+                    </div>
+                    <div class="accordion-content">
+                        <p>Website ini adalah platform untuk mengasah kemampuan Bahasa Sunda melalui quiz interaktif yang dapat diakses oleh siapa saja yang ingin belajar atau menguji pengetahuan mereka tentang Bahasa Sunda.</p>
+                    </div>
+                </div>
+
+                <div class="accordion-item">
+                    <div class="accordion-header">
+                        <h3>Apakah quiz di website ini gratis?</h3>
+                        <span class="icon">▼</span>
+                    </div>
+                    <div class="accordion-content">
+                        <p>Ya, semua quiz yang ada di website ini dapat diakses dan diikuti secara gratis oleh pengguna. Tidak ada biaya untuk mengikuti quiz apapun.</p>
+                    </div>
+                </div>
+
+                <div class="accordion-item">
+                    <div class="accordion-header">
+                        <h3>Bagaimana Cara Mengikuti Quiz?</h3>
+                        <span class="icon">▼</span>
+                    </div>
+                    <div class="accordion-content">
+                        <p>Hanya perlu memilih quiz yang ingin diikuti, mulai dari soal pertama, dan jawab setiap soal dengan memilih jawaban yang benar. Setelah selesai, Anda akan melihat hasil dari quiz yang telah diikuti.</p>
+                    </div>
+                </div>
+
+                <div class="accordion-item">
+                    <div class="accordion-header">
+                        <h3>Apakah saya bisa mengulang quiz yang sama?</h3>
+                        <span class="icon">▼</span>
+                    </div>
+                    <div class="accordion-content">
+                        <p>Ya, Anda bisa mengerjakan quiz yang sama berkali-kali. Ini bisa membantu Anda untuk lebih memahami materi Bahasa Sunda yang belum dikuasai.</p>
+                    </div>
+                </div>
+
+                <div class="accordion-item active">
+                    <div class="accordion-header">
+                        <h3>Apakah hasil quiz bisa digunakan untuk keperluan akademis?</h3>
+                        <span class="icon">▲</span>
+                    </div>
+                    <div class="accordion-content active">
+                        <p>Hasil quiz dapat digunakan sebagai referensi pribadi untuk melihat perkembangan Anda dalam mempelajari Bahasa Sunda. Namun, hasil ini tidak memiliki sertifikat resmi untuk keperluan akademis.</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="button-container">
+                <a href="profile.html" class="back-button">Kembali</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Empty space to ensure enough content height -->
+    <div class="spacer"></div>
+
+    <!---Section Footer-->
+    <section class="footer">
+        <div class="footer-content">
+            <div class="judul">
+                <h2>Sunda<span>Verse</span></h2>
+            </div>
+            <div class="link-kosong">
+                <p>FAQ</p>
+                <p>Terms of Service</p>
+            </div>
+            <div class="lokasi">
+                <p>Informatika, Universitas Siliwangi</p>
+            </div>
+            <div class="copyright">
+                <p>&copy; SundaVerse 2025. All Rights Reserved.</p>
+            </div>
+        </div>
+    </section>
+
+    <script>
+        // JavaScript for accordion functionality
+        document.querySelectorAll('.accordion-header').forEach(header => {
+            header.addEventListener('click', () => {
+                const accordionItem = header.parentElement;
+
+                // Close all other accordion items
+                document.querySelectorAll('.accordion-item').forEach(item => {
+                    if (item !== accordionItem) {
+                        item.classList.remove('active');
+                        item.querySelector('.icon').textContent = '▼';
+                        item.querySelector('.accordion-content').classList.remove('active');
+                    }
+                });
+
+                // Toggle the clicked accordion item
+                accordionItem.classList.toggle('active');
+                const icon = header.querySelector('.icon');
+                const content = accordionItem.querySelector('.accordion-content');
+
+                if (accordionItem.classList.contains('active')) {
+                    icon.textContent = '▲';
+                    content.style.height = content.scrollHeight + 'px'; // Open content
+                } else {
+                    icon.textContent = '▼';
+                    content.style.height = '0'; // Close content
+                }
+            });
+        });
+    </script>
+</body>
+</html>

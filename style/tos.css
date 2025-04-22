@@ -1,0 +1,239 @@
+/* Import Poppins font from Google Fonts */
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap');
+
+/* Reset and base styles */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Poppins', sans-serif;
+}
+
+body {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh; /* Tambahkan ini untuk footer di bawah */
+}
+
+body::before {
+    content: '';
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-image: url('/images/background-home.png');
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+    opacity: 0.2;
+    z-index: -1;
+}
+
+/* Navbar styles - Diperbesar */
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 3rem 5%; /* Padding diperbesar */
+    background-color: #1e3a5f;
+    color: white;
+    height: 80px; /* Tinggi tetap */
+}
+
+.logo span {
+    color: #D4A017;
+}
+
+.logo a {
+    font-size: 2rem; /* Ukuran logo diperbesar */
+    font-weight: 700;
+    color: white;
+    text-decoration: none;
+}
+
+.menu {
+    display: flex;
+    list-style: none;
+}
+
+.menu li {
+    margin-left: 2rem; /* Jarak antar menu diperbesar */
+}
+
+.menu a {
+    color: white;
+    text-decoration: none;
+    font-weight: 500;
+    transition: color 0.3s ease;
+    font-size: 1.2rem; /* Ukuran teks menu diperbesar */
+    padding: 0.5rem 1rem; /* Padding tambahan */
+}
+
+/* Tambahkan style untuk menu aktif */
+.menu a.active {
+    color: #f8cb4a !important;
+    position: relative;
+}
+
+.menu a.active::after {
+    content: '';
+    position: absolute;
+    bottom: -8px;
+    left: 0;
+    width: 100%;
+    height: 3px;
+    background-color: #f8cb4a;
+    border-radius: 2px;
+}
+
+/* Modifikasi hover state */
+.menu a:hover {
+    color: #D4A017 !important;
+}
+
+/* Main content styles */
+main {
+    max-width: 800px;
+    margin: 1rem auto 2rem; /* Top margin dikurangi dari 2rem ke 1rem */
+    padding: 1.5rem 2.5rem; /* Padding top dikurangi */
+    background-color: #fff;
+    border-radius: 10px;
+    box-shadow: 0 2px 15px rgba(0, 0, 0, 0.05);
+    flex: 1;
+}
+
+
+h1 {
+    font-size: 3rem;
+    color: #333;
+    margin-bottom: 1.5rem;
+    font-weight: 600;
+}
+
+.last-updated {
+    font-size: 0.9rem;
+    color: #555;
+    margin-bottom: 0.5rem;
+}
+
+.intro {
+    font-size: 1rem;
+    margin-bottom: 2rem;
+    color: #555;
+}
+
+.terms-section {
+    margin-bottom: 1.5rem;
+}
+
+.terms-section h2 {
+    font-size: 1.1rem;
+    color: #333;
+    margin-bottom: 0.5rem;
+    font-weight: 600;
+}
+
+.terms-section p {
+    font-size: 0.95rem;
+    color: #555;
+    text-align: justify;
+}
+
+.back-button {
+    display: flex;
+    justify-content: center;
+    margin-top: 2rem;
+}
+
+/* Back button */
+.btn-back {
+    display: inline-block;
+    background-color: #f8cb4a;
+    color: #333;
+    border: none;
+    padding: 0.5rem 1.5rem;
+    border-radius: 15px;
+    cursor: pointer;
+    font-size: 0.9rem;
+    font-weight: 500;
+    transition: background-color 0.3s ease;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    text-decoration: none;
+}
+
+.btn-back:hover {
+    background-color: #f5c235;
+    color: #333;
+}
+
+
+/* Footer */
+.footer {
+    background-color: #1E3A5F;
+    color: #fff;
+    padding: 50px 20px 30px;
+    text-align: center;
+    margin-top: auto; /* Memastikan footer tetap di bawah */
+    width: 100%;
+}
+.footer .judul h2 {
+    font-size: 24px;
+    margin-bottom: 20px;
+    font-weight: 800;
+}
+
+.footer .judul span {
+    color: #D4A017;
+}
+
+.footer .link-kosong {
+    font-size: 18px;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    gap: 30px; /* Gap diperkecil */
+    border-bottom: 2px solid #262626;
+    padding-bottom: 30px;
+    margin: 30px 0; /* Margin disederhanakan */
+    flex-wrap: wrap; /* Untuk responsif */
+}
+
+.footer .lokasi p {
+    font-size: 16px;
+    font-weight: 300;
+    border-bottom: 2px solid #262626;
+    padding-bottom: 30px;
+    margin: 30px 0;
+}
+
+.footer .copyright p {
+    font-size: 14px;
+    font-weight: 300;
+}
+
+/* Responsive footer */
+@media (max-width: 768px) {
+    .footer {
+        padding: 50px 15px;
+    }
+    
+    .footer .link-kosong {
+        gap: 20px;
+        padding-bottom: 20px;
+        margin: 20px 0;
+    }
+    
+    .footer .lokasi p {
+        font-size: 14px;
+        padding-bottom: 20px;
+        margin: 20px 0;
+    }
+    
+    .footer .copyright p {
+        font-size: 12px;
+    }
+}
+

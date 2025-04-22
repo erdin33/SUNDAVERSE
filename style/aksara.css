@@ -1,0 +1,308 @@
+/* Reset CSS */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Poppins';
+    background-image: url(/images/batik2.png);
+    background-size: 100%;
+    background-repeat: no-repeat;
+    background-color: #F5EFFF;
+    line-height: 1.6;
+}
+
+/* Navbar styles - Diperbesar */
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 3rem 5%; /* Padding diperbesar */
+    background-color: #1e3a5f;
+    color: white;
+    height: 80px; /* Tinggi tetap */
+}
+
+.logo span {
+    color: #D4A017;
+}
+
+.logo a {
+    font-size: 2rem; /* Ukuran logo diperbesar */
+    font-weight: 700;
+    color: white;
+    text-decoration: none;
+}
+
+.menu {
+    display: flex;
+    list-style: none;
+}
+
+.menu li {
+    margin-left: 2rem; /* Jarak antar menu diperbesar */
+}
+
+.menu a {
+    color: white;
+    text-decoration: none;
+    font-weight: 500;
+    transition: color 0.3s ease;
+    font-size: 1.2rem; /* Ukuran teks menu diperbesar */
+    padding: 0.5rem 1rem; /* Padding tambahan */
+}
+
+/* Tambahkan style untuk menu aktif */
+.menu a.active {
+    color: #f8cb4a !important;
+    position: relative;
+}
+
+.menu a.active::after {
+    content: '';
+    position: absolute;
+    bottom: -8px;
+    left: 0;
+    width: 100%;
+    height: 3px;
+    background-color: #f8cb4a;
+    border-radius: 2px;
+}
+
+/* Modifikasi hover state */
+.menu a:hover {
+    color: #D4A017 !important;
+}
+/* Section Header*/
+.header {
+    display: flex;
+    justify-content: center; /* Tengah horizontal */
+    align-items: center; /* Tengah vertikal */
+    margin-bottom: -145px;
+    padding: 100px;
+}
+
+.header-content {
+    text-align: center; /* Teks di dalam container juga rata tengah */
+}
+
+.header h1 {
+    font-size: 32px;
+    position: sticky;
+    z-index: 1000;
+    font-weight: bold;
+    font-family: 'poppins';
+    text-shadow:
+        1px 1px 0 black,
+        1px 5px 0 #1E3A5F,
+        -1px -1px 0 black,
+        1px -1px 0 black,
+        -1px 5px 0 #1E3A5F,
+        -1px 1px 0 black;
+    text-transform: uppercase; /* Huruf kapital semua */
+    color: white; /* Warna putih untuk teks */
+    padding: 20px 100px; /* Padding untuk memberi ruang */
+    border-radius: 15px; /* Sudut melengkung */
+    box-shadow: 
+        0 0 0 1px rgba(255, 255, 255, 1), /* Border tipis transparan abu-abu */
+        0 0 10px rgba(0, 0, 0, 0.5); /* Bayangan agar teks terlihat lebih tajam */
+    display: inline-block; /* Membuat elemen menjadi inline-block */
+    background-color: rgba(255, 255, 255, 0.3);
+}
+
+/* Section Utama*/
+.utama {
+    margin-top: 100px;
+    padding: 1px;
+    justify-content: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.utama-border {
+    max-width: 1180px;
+    background-color: #E4C95D;
+    padding: 70px 100px;
+    border-radius: 15px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    margin-bottom: 150px;
+}
+.utama-content {
+    text-align: center;
+}
+
+.utama p {
+    text-align: justify;
+}
+
+/* Section Tengah */
+.swara,
+.ngalagena,
+.rarangken,
+.angka {
+    align-items: center;
+    display: flex;
+    flex-direction: column;
+}
+
+/* Section Judul */
+.judul-aksara,
+.judul-aksara2,
+.judul-aksara3,
+.judul-content2 {
+    display: inline-block;
+    font-size: 24;
+    text-align: center;
+    background-color: #E4C95D;
+    padding: 15px 20px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+    margin-bottom: 40px;
+    border-radius: 20px;
+}
+
+/* Section Swara */
+.judul-content {
+    font-size: 24px;
+    text-decoration: underline;
+    margin-bottom: 40px;
+}
+
+.swara-r1 {
+    display: flex;
+    flex-direction: row;
+    gap: 49px;
+}
+
+.aksara-swara {
+    display: inline-block;
+    background-color: #fff;
+    padding: 10px 30px;
+    border-radius: 13px;
+    box-shadow: 0 2px 5px #1E3A5F;
+    margin-bottom: 40px;
+}
+
+/* Section Ngalagena */
+.ngalagena-r {
+    display: flex;
+    flex-direction: row;
+    gap: 49px
+}
+
+.ngalagena1 {
+    display: inline-block;
+    background-color: #fff;
+    padding: 10px 30px;
+    border-radius: 13px;
+    box-shadow: 0 2px 5px #1E3A5F;
+    margin-bottom: 40px;
+}
+
+/* Section Tanda */
+.tanda-r {
+    display: flex;
+    flex-direction: row;
+    gap: 49px
+}
+
+.tanda1 {
+    display: inline-block;
+    background-color: #fff;
+    padding: 10px 30px;
+    border-radius: 13px;
+    box-shadow: 0 2px 5px #1E3A5F;
+    margin-bottom: 40px;
+}
+
+/* Section Angka */
+.angka-r {
+    display: flex;
+    flex-direction: row;
+    gap: 49px;
+}
+
+.angka1 {
+    display: inline-block;
+    background-color: #fff;
+    padding: 10px 30px;
+    border-radius: 13px;
+    box-shadow: 0 2px 5px #1E3A5F;
+    margin-bottom: 40px;
+}
+
+/* Footer */
+.footer {
+    background-color: #1E3A5F;
+    color: #fff;
+    padding: 70px 150px;
+    text-align: center;
+}
+
+.footer .judul h2 {
+    font-size: 24px;
+    margin-bottom: 20px;
+    font-weight: 800;
+}
+
+.footer .judul span {
+    color: #D4A017;
+}
+
+.footer .link-kosong {
+    font-size: 18px;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    gap: 50px;
+    border-bottom: 2px solid #262626; /* Garis putih tipis */
+    padding-bottom: 50px;
+    margin: 50px 100px;
+}
+
+.footer .lokasi p {
+    font-size: 18px;
+    font-weight: 100;
+    border-bottom: 2px solid #262626; /* Garis putih tipis */
+    padding-bottom: 50px;
+    margin: 50px 100px;
+}
+.footer .copyright p {
+    font-size: 18px;
+    font-weight: 100;
+}
+
+/* General Styling */
+section {
+    padding: 50px;
+}
+
+h1, h2, h3 {
+    font-weight: 600;
+}
+
+p {
+    font-size: 1rem;
+}
+
+button a {
+    text-decoration: none;
+    color: inherit;
+}
+
+/*responsiv*/
+@media (max-width: 768px) {
+    .navbar {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+    .menu {
+        margin-top: 10px;
+    }
+    .menu li {
+        margin-bottom: 5px;
+    }
+}
