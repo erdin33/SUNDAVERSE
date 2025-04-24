@@ -1,9 +1,6 @@
 <<?php
 include 'koneksi.php'; // Pastikan koneksi berhasil
 include 'cek_user.php'; // Cek apakah user sudah login
-echo "<pre>";
-print_r($_SESSION);  // Debug untuk menampilkan session
-echo "</pre>";
 ?>
 
 <!DOCTYPE html>
@@ -13,11 +10,7 @@ echo "</pre>";
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>SundaVerse</title>
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
-<<<<<<< HEAD
-    <link rel="stylesheet" href="../index.css">
-=======
     <link rel="stylesheet" href="../style/index.css">
->>>>>>> 019363b0703412bfa15c485007ff0540fdf7f225
 </head>
 <body>
     <!-- Navbar -->

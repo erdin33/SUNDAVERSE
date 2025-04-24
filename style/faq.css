@@ -12,7 +12,7 @@ body {
     display: flex;
     flex-direction: column;
     min-height: 100vh;
-    background-image: url('/images/background-home.png');
+    background-image: url('../images/background-home.png');
     background-size: cover;
     background-position: center;
     position: relative;

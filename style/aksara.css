@@ -7,7 +7,7 @@
 
 body {
     font-family: 'Poppins';
-    background-image: url(/images/batik2.png);
+    background-image: url('../images/batik2.png');
     background-size: 100%;
     background-repeat: no-repeat;
     background-color: #F5EFFF;

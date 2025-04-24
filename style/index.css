@@ -7,7 +7,8 @@
 
 body {
     font-family: 'Poppins';
-    background-image: url(batik1.png);
+    background-image: url('../images/background-home.png'); /* Wave pattern background */
+
     background-size: 100%;
     background-color: #F5EFFF;
     line-height: 1.6;
@@ -132,7 +133,7 @@ body {
 /* Section Tengah */
 .dua-home {
     padding: 130px;
-    background-image: url('wave-pattern.png'); /* Wave pattern background */
+/* Wave pattern background */
     background-repeat: repeat-x;
     background-position: center bottom;
     justify-content: center;

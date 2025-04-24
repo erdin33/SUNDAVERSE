@@ -1,7 +1,34 @@
 <?php
 include 'cek_user.php';
 include 'koneksi.php'; 
-// Pastikan koneksi berhasil
+
+include 'koneksi.php'; // Pastikan ini sesuai dengan file koneksi database kamu
+
+if (isset($_POST['submit_profile'])) {
+    $newUsername = $_POST['username'];
+    $newEmail = $_POST['email'];
+    $inputPassword = $_POST['password'];
+
+    $idUser = $_SESSION['id'];
+
+    // Ambil password dari database
+    $query = mysqli_query($conn, "SELECT password FROM users WHERE id = '$idUser'");
+    $data = mysqli_fetch_assoc($query);
+
+    if (password_verify($inputPassword, $data['password'])) {
+        // Password cocok, update data
+        mysqli_query($conn, "UPDATE user SET nama='$newUsername', email='$newEmail' WHERE id_user='$idUser'");
+
+        $_SESSION['username'] = $newUsername;
+        $_SESSION['email'] = $newEmail;
+
+        echo "<p style='color:green;'>Profil berhasil diperbarui.</p>";
+    } else {
+        echo "<p style='color:red;'>Password salah. Tidak bisa menyimpan perubahan.</p>";
+    }
+}
+
+
 ?>
 
 <!DOCTYPE html>
@@ -78,7 +105,7 @@ include 'koneksi.php';
             Terms of Service
         </a>
         
-        <a href="login.html" class="menu-card">
+        <a href="logout.php" class="menu-card">
             <div class="menu-icon">
                 <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
                     <path d="M10.09 15.59L11.5 17L16.5 12L11.5 7L10.09 8.41L12.67 11H3V13H12.67L10.09 15.59ZM19 3H5C3.89 3 3 3.9 3 5V9H5V5H19V19H5V15H3V19C3 20.1 3.89 21 5 21H19C20.1 21 21 20.1 21 19V5C21 3.9 20.1 3 19 3Z" fill="black"/>
