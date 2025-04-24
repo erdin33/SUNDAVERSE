@@ -1,0 +1,238 @@
+/* Reset CSS */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Poppins';
+    background-image: url(batik1.png);
+    background-size: 100%;
+    background-color: #F5EFFF;
+    line-height: 1.6;
+}
+
+/* Header */
+.navbar {
+    background-color: #1E3A5F;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 15px 80px;
+}
+
+.logo span {
+    color: #D4A017;
+}
+
+.logo a {
+    color: #fff;
+    text-decoration: none;
+    font-weight: 800;
+    font-size: 24px;
+}
+
+.menu {
+    list-style: none;
+    display: flex;
+    gap: 20px;
+}
+
+.menu li a:hover {
+    color: #D4A017; /* Gold */
+}
+
+.navbar ul {
+    list-style: none;
+    display: flex;
+    justify-content: center;
+    gap: 60px;
+}
+
+.navbar li a {
+    color: #fff;
+    text-decoration: none;
+    font-weight: 300;
+    transition: color 0.3s ease;
+}
+
+.navbar li a.active {
+    font-weight: bold;
+    text-decoration: underline;
+}
+
+.navbar li a:hover {
+    color: #D4A017; /* Gold */
+}
+
+/* Section Quiz List */
+.container {
+    text-align: center;
+    padding: 100px 300px;
+}
+
+.container h1 {
+    color: #333;
+    margin-bottom: 40px;
+}
+
+.quiz-list {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 40px 80px;
+    margin-bottom: 40px;
+}
+
+.quiz-card {
+    background-color: #fff;
+    padding: 20px;
+    border-radius: 15px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease;
+}
+
+.quiz-card:hover {
+    transform: scale(1.05);
+    cursor: pointer;
+}
+
+.quiz-card h2 {
+    color: #333;
+}
+
+.quiz-card p {
+    color: #000;
+}
+
+.quiz-card.selected {
+    background-color: #b3d9ff; /* Warna biru muda */
+    border: 2px solid #007bff; /* Border biru tua */
+}
+
+#startQuizBtn {
+    margin-top: 20px;
+    padding: 10px 20px;
+    background-color: #e4c95d;
+    color: #333;
+    border: none;
+    border-radius: 15px;
+    font-size: 16px;
+    font-weight: 550;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+#startQuizBtn:hover {
+    background-color: #e6b300;
+}
+
+/* Styling untuk modal */
+.modal {
+    display: none; /* Modal disembunyikan secara default */
+    position: fixed;
+    z-index: 1000; /* Pastikan modal berada di atas konten lain */
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5); /* Overlay semi-transparan */
+    justify-content: center;
+    align-items: center;
+}
+
+.modal-content {
+    background-color: #fff;
+    padding: 20px;
+    border-radius: 10px;
+    width: 300px;
+    text-align: center;
+    position: relative;
+}
+
+.close-btn {
+    position: absolute;
+    top: 10px;
+    right: 15px;
+    font-size: 20px;
+    cursor: pointer;
+    color: #333;
+}
+
+.close-btn:hover {
+    color: #007bff; /* Warna hover untuk tombol close */
+}
+
+/* Footer */
+.footer {
+    background-color: #1E3A5F;
+    color: #fff;
+    padding: 30px 150px;
+    text-align: center;
+}
+
+.footer .judul h2 {
+    font-size: 24px;
+    margin-bottom: 20px;
+    font-weight: 800;
+}
+
+.footer .judul span {
+    color: #D4A017;
+}
+
+.footer .link-kosong {
+    font-size: 18px;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    gap: 50px;
+    border-bottom: 2px solid #262626; /* Garis putih tipis */
+    padding-bottom: 20px;
+    margin: 50px 100px;
+}
+
+.footer .lokasi p {
+    font-size: 18px;
+    font-weight: 100;
+    border-bottom: 2px solid #262626; /* Garis putih tipis */
+    padding-bottom: 30px;
+    margin: 50px 100px;
+}
+.footer .copyright p {
+    font-size: 18px;
+    font-weight: 100;
+}
+
+/* General Styling */
+section {
+    padding: 50px;
+}
+
+h1, h2, h3 {
+    font-weight: 600;
+}
+
+p {
+    font-size: 1rem;
+}
+
+button a {
+    text-decoration: none;
+    color: inherit;
+}
+
+/*responsiv*/
+@media (max-width: 768px) {
+    .navbar {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+    .menu {
+        margin-top: 10px;
+    }
+    .menu li {
+        margin-bottom: 5px;
+    }
+}

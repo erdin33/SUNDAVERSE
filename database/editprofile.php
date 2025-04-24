@@ -42,13 +42,13 @@ if (isset($_POST['submit_profile'])) {
 <body>
     <nav class="navbar">
         <div class="logo">
-            <a href="index.html">Sunda<span>Verse</span></a>
+            <a href="index.php">Sunda<span>Verse</span></a>
         </div>
         <ul class="menu">
-            <li><a href="index.html" id="home-link">Home</a></li>
-            <li><a href="aksara.html">Aksara</a></li>
+            <li><a href="index.php" id="home-link">Home</a></li>
+            <li><a href="./aksara.php">Aksara</a></li>
             <li><a href="quiz.html">Quiz</a></li>
-            <li><a href="profile.html" class="active" >Profile</a></li>
+            <li><a href="profile.php" class="active" >Profile</a></li>
         </ul>
     </nav>
     
@@ -111,7 +111,7 @@ if (isset($_POST['submit_profile'])) {
                     <path d="M10.09 15.59L11.5 17L16.5 12L11.5 7L10.09 8.41L12.67 11H3V13H12.67L10.09 15.59ZM19 3H5C3.89 3 3 3.9 3 5V9H5V5H19V19H5V15H3V19C3 20.1 3.89 21 5 21H19C20.1 21 21 20.1 21 19V5C21 3.9 20.1 3 19 3Z" fill="black"/>
                 </svg>
             </div>
-            Masuk / Daftar
+            Keluar
         </a>
     </div>
     

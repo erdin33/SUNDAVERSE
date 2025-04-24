@@ -1,0 +1,88 @@
+/* Reset CSS */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    text-align: center;
+    background-color: #f4f4f9;
+    padding: 20px;
+}
+
+h1 {
+    margin-bottom: 20px;
+}
+
+.puzzle-container {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    margin-top: 50px;
+}
+
+.target-area {
+    display: grid;
+    grid-template-columns: repeat(3, 100px);
+    gap: 10px;
+}
+
+.target {
+    width: 100px;
+    height: 100px;
+    background-color: #e0e0e0;
+    border: 2px dashed #ccc;
+    border-radius: 5px;
+}
+
+.pieces {
+    display: flex;
+    gap: 10px;
+}
+
+.piece {
+    width: 100px;
+    height: 100px;
+    background-color: #0d47a1;
+    color: white;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 2rem;
+    font-weight: bold;
+    border-radius: 5px;
+    cursor: grab;
+    user-select: none;
+}
+
+.piece.dragging {
+    opacity: 0.5;
+}
+
+/* Warna Validasi */
+.piece.correct {
+    background-color: #4caf50; /* Hijau */
+}
+
+.piece.wrong {
+    background-color: #f44336; /* Merah */
+}
+
+/* Tombol Selesai */
+#finish-button {
+    margin-top: 20px;
+    padding: 10px 20px;
+    font-size: 1rem;
+    background-color: #0d47a1;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+#finish-button:hover {
+    background-color: #0b3e80;
+}

@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SundaVerse</title>
+    <link id="font-API" href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="quiz-tebak-aksara-sunda.css">
+</head>
+<body>
+    <!-- Navbar -->
+    <nav class="navbar">
+        <div class="logo">
+            <a href="index.html">Sunda<span>Verse</span></a>
+        </div>
+        <ul class="menu">
+            <li><a href="index.html" id="home-link">Home</a></li>
+            <li><a href="aksara.html">Aksara</a></li>
+            <li><a href="quiz.html" id="quiz-link">Quiz</a></li>
+            <li><a href="profile.html">Profile</a></li>
+        </ul>
+    </nav>
+
+    <!--Section Quiz-->
+    <div class="quiz-container">
+        <h1>Tebak Aksara Bahasa Sunda</h1>
+        <div class="score-container">
+            <span id="score">Skor: 0</span>
+        </div>
+        <div class="perintah">
+            <p>Apa terjemahan kata berikut dalam bahasa Sunda?</p>
+        </div>
+        <h2 class="question" id="question">Malu</h2>
+        <div id="answer-buttons" class="answer-buttons">
+            <button class="answer-button">Nyeri</button>
+            <button class="answer-button">Éra</button>
+            <button class="answer-button">Sieun</button>
+            <button class="answer-button">Hanjakal</button>
+        </div>
+        <div id="feedback" class="feedback"></div>
+        <div class="navigation">
+            <button id="prev-btn" class="nav-btn"> Sebelum</button>
+            <button id="next-btn" class="nav-btn">Selanjutnya ></button>
+        </div>
+    </div>
+
+    <!-- Confirmation Popup -->
+    <div id="confirmation-popup" class="popup-kembali" style="display: none;">
+        <div class="popup-content-kembali">
+            <p>Apakah Anda yakin ingin kembali ke halaman utama quiz?</p>
+            <div class="popup-buttons">
+                <button id="confirm-yes">Ya</button>
+                <button id="confirm-no">Tidak</button>
+            </div>
+        </div>
+    </div>
+
+    <!---Section Popup-->
+    <div id="popup" class="popup">
+        <div class="popup-content">
+            <p>Tolong isi terlebih dahulu soal berikut!</p>
+            <button id="close-popup">OK</button>
+        </div>
+    </div>
+
+    <!---Section Footer-->
+    <section class="footer">
+        <div class="footer-content">
+            <div class="judul">
+                <h2>Sunda<span>Verse</span></h2>
+            </div>
+            <div class="link-kosong">
+                <p>FAQ</p>
+                <p>Terms of Service</p>
+            </div>
+            <div class="lokasi">
+                <p>Informatika, Universitas Siliwangi</p>
+            </div>
+            <div class="copyright">
+                <p>&copy; SundaVerse 2025. All Rights Reserved.</p>
+            </div>
+        </div>
+    </section>
+
+    <script src="quiz-tebak-aksara-sunda.js"></script>
+</body>
+</html>

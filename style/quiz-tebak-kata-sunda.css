@@ -1,0 +1,320 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Poppins';
+    background-color: #F5EFFF;
+    line-height: 1.6;
+}
+
+/* Header */
+.navbar {
+    background-color: #1E3A5F;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 15px 80px;
+}
+
+.logo span {
+    color: #D4A017;
+}
+
+.logo a {
+    color: #fff;
+    text-decoration: none;
+    font-weight: 800;
+    font-size: 24px;
+}
+
+.menu {
+    list-style: none;
+    display: flex;
+    gap: 20px;
+}
+
+.menu li a:hover {
+    color: #D4A017; /* Gold */
+}
+
+.navbar ul {
+    list-style: none;
+    display: flex;
+    justify-content: center;
+    gap: 60px;
+}
+
+.navbar li a {
+    color: #fff;
+    text-decoration: none;
+    font-weight: 300;
+    transition: color 0.3s ease;
+}
+
+.navbar li a.active {
+    font-weight: bold;
+    text-decoration: underline;
+}
+
+.navbar li a:hover {
+    color: #D4A017; /* Gold */
+}
+
+/* Section Quiz */
+.quiz-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    padding: 100px;
+}
+
+.quiz-container h1 {
+    margin-bottom: 65px;
+}
+
+.score-container {
+    margin-bottom: 65px;
+}
+
+.perintah {
+    margin-bottom: 65px;
+}
+
+.perintah p {
+    font-size: 24px;
+}
+
+#score {
+    background-color: #FFD700;
+    color: black;
+    padding: 10px 20px;
+    border-radius: 20px;
+    font-weight: bold;
+}
+
+#question {
+    font-size: 32px;
+    font-weight: 100;
+    margin-bottom: 65px;
+}
+
+.answer-buttons {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 30px 60px;
+    margin-bottom: 65px;
+}
+
+.answer-button {
+    background-color: #fff;
+    padding: 10px 40px;
+    font-size: 18px;
+    font-family: 'Poppins';
+    border: 2px solid #1E3A5F;
+    border-radius: 15px;
+    cursor: pointer;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.5);
+    transition: background-color 0.3s, color 0.3s;
+}
+
+.answer-button.correct {
+    background-color: #2ecc71; /* Hijau untuk jawaban benar */
+    color: white;
+}
+
+.answer-button.incorrect {
+    background-color: #e74c3c; /* Merah untuk jawaban salah */
+    color: white;
+}
+
+/* Styling untuk feedback */
+.feedback {
+    border-radius: 15px;
+    color: black;
+    text-align: left;
+    display: flex; /* Feedback disembunyikan secara default */
+}
+
+.feedback.correct {
+    background-color: #DEE7E6; /* Hijau muda */
+    padding: 50px 70px;
+}
+
+.feedback.incorrect {
+    background-color: #F2D6E3; /* Pink muda */
+    padding: 50px 70px;
+}
+
+/* Label Jawaban Anda dan Jawaban Benar */
+.hasil {
+    margin-bottom: 30px;
+    font-size: 20px;
+}
+.judul-answer {
+    margin-bottom: 30px;
+}
+
+.coba {
+    display: flex;
+    flex-direction: row ;
+    justify-content: center;
+    text-align: center;
+    gap: 100px;
+}
+
+.answer-feedback {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    gap: 30px;
+    margin-bottom: 30px;
+}
+
+
+.answer-label {
+    background-color: #B9DABF; /* Hijau muda */
+    padding: 5px 45px;
+    border-radius: 15px;
+    font-weight: 450;
+}
+
+
+.wrong-answer {
+    background-color: #EDAEB6;
+    padding: 5px 45px;
+    border-radius: 15px;
+    font-weight: 450;
+}
+
+.popup {
+    display: none; /* Tersembunyi secara default */
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5); /* Latar belakang gelap */
+    justify-content: center;
+    align-items: center;
+    z-index: 1000;
+}
+
+.popup-content {
+    background-color: white;
+    padding: 20px;
+    border-radius: 10px;
+    text-align: center;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
+}
+
+#close-popup {
+    margin-top: 10px;
+    padding: 5px 10px;
+    background-color: #FFD700;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+/* Nilai jawaban */
+.navigation {
+    margin-top: 20px;
+    display: flex;
+    justify-content: space-between;
+    gap: 300px;
+}
+
+.nav-btn {
+    padding: 10px 20px;
+    font-size: 18px;
+    font-family: 'Poppins';
+    border: none;
+    border-radius: 10px;
+    cursor: pointer;
+    background-color: #FFD700;
+    color: black;
+    transition: background-color 0.3s;
+}
+
+.nav-btn:hover {
+    background-color: #F7DC6F;
+}
+
+/* Footer */
+.footer {
+    background-color: #1E3A5F;
+    color: #fff;
+    padding: 30px 150px;
+    text-align: center;
+}
+
+.footer .judul h2 {
+    font-size: 24px;
+    margin-bottom: 20px;
+    font-weight: 800;
+}
+
+.footer .judul span {
+    color: #D4A017;
+}
+
+.footer .link-kosong {
+    font-size: 18px;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    gap: 50px;
+    border-bottom: 2px solid #262626; /* Garis putih tipis */
+    padding-bottom: 20px;
+    margin: 50px 100px;
+}
+
+.footer .lokasi p {
+    font-size: 18px;
+    font-weight: 100;
+    border-bottom: 2px solid #262626; /* Garis putih tipis */
+    padding-bottom: 30px;
+    margin: 50px 100px;
+}
+.footer .copyright p {
+    font-size: 18px;
+    font-weight: 100;
+}
+
+/* General Styling */
+section {
+    padding: 50px;
+}
+
+h1, h2, h3 {
+    font-weight: 600;
+    font-family: 'Poppins';
+}
+
+p {
+    font-family: 'Poppins';
+}
+
+button a {
+    text-decoration: none;
+    color: inherit;
+}
+
+/*responsiv*/
+@media (max-width: 768px) {
+    .navbar {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+    .menu {
+        margin-top: 10px;
+    }
+    .menu li {
+        margin-bottom: 5px;
+    }
+}
