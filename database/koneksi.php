@@ -1,11 +1,11 @@
 <?php
 $host = 'localhost';     // Host database
-$username = 'root';      // Username database
+$USERNAME = 'root';      // Username database
 $password = '';          // Password database
 $database = 'sundaverse';   // Nama database
 
 // Membuat koneksi menggunakan mysqli_connect()
-$koneksi = mysqli_connect($host, $username, $password, $database);
+$koneksi = mysqli_connect($host, $USERNAME, $password, $database);
 
 // Memeriksa koneksi
 if (!$koneksi) {
