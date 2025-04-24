@@ -1,11 +1,7 @@
 <?php 
-session_start();
+include 'koneksi.php'; // Pastikan koneksi berhasil
 include 'cek_user.php'; 
-
-if (!$isLoggedIn) {
-    header("Location: ../login.html");
-    exit();
-}?>
+?>
     
 <!DOCTYPE html>
 <html lang="en">
@@ -22,9 +18,9 @@ if (!$isLoggedIn) {
         </div>
         <ul class="menu">
             <li><a href="index.php" id="home-link">Home</a></li>
-            <li><a href="aksara.html">Aksara</a></li>
-            <li><a href="quiz.html">Quiz</a></li>
-            <li><a href="profile.html">Profile</a></li>
+            <li><a href="../aksara.php">Aksara</a></li>
+            <li><a href="../quiz.html">Quiz</a></li>
+            <li><a href="profile.php">Profile</a></li>
         </ul>
     </nav>
     
@@ -35,12 +31,12 @@ if (!$isLoggedIn) {
                     <path d="M12 12C14.21 12 16 10.21 16 8C16 5.79 14.21 4 12 4C9.79 4 8 5.79 8 8C8 10.21 9.79 12 12 12ZM12 14C9.33 14 4 15.34 4 18V20H20V18C20 15.34 14.67 14 12 14Z" fill="white"/>
                 </svg>
             </div>
-            <h2>User</h2>
-            <p class="username">@<?= $_SESSION['username'] ?></p>
+            <h2><?= $_SESSION['username']?></h2>
+            <p class="username"><?= $_SESSION['email'] ?></p>
             <div class="score-badge">Total skor: -</div>
         </div>
         
-        <a href="#" class="menu-card">
+        <a href="editprofile.php" class="menu-card">
             <div class="menu-icon">
                 <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
                     <path d="M3 17.25V21H6.75L17.81 9.94L14.06 6.19L3 17.25ZM20.71 7.04C21.1 6.65 21.1 6.02 20.71 5.63L18.37 3.29C17.98 2.9 17.35 2.9 16.96 3.29L15.13 5.12L18.88 8.87L20.71 7.04Z" fill="black"/>
@@ -77,26 +73,22 @@ if (!$isLoggedIn) {
         </a>
     </div>
     
-    <footer>
-        <div class="footer-logo"><span class="sunda">Sunda</span>Verse</div>
-        
-        <div class="footer-links">
-            <a href="#">FAQ</a>
-            <a href="#">Terms of Service</a>
+    <section class="footer">
+        <div class="footer-content">
+            <div class="judul">
+                <h2>Sunda<span>Verse</span></h2>
+            </div>
+            <div class="link-kosong">
+                <p>FAQ</p>
+                <p>Terms of Service</p>
+            </div>
+            <div class="lokasi">
+                <p>Informatika, Universitas Siliwangi</p>
+            </div>
+            <div class="copyright">
+                <p>&copy; SundaVerse 2025. All Rights Reserved.</p>
+            </div>
         </div>
-        
-        <div class="divider"></div>
-        
-        <div class="location">
-            <span class="location-icon">
-                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                    <path d="M12 2C8.13 2 5 5.13 5 9C5 14.25 12 22 12 22C12 22 19 14.25 19 9C19 5.13 15.87 2 12 2ZM12 11.5C10.62 11.5 9.5 10.38 9.5 9C9.5 7.62 10.62 6.5 12 6.5C13.38 6.5 14.5 7.62 14.5 9C14.5 10.38 13.38 11.5 12 11.5Z" fill="#e9cb4f"/>
-                </svg>
-            </span>
-            Informatika, Universitas Siliwangi
-        </div>
-        
-        <div class="copyright">© SundaVerse 2025. All Rights Reserved.</div>
-    </footer>
+    </section>
 </body>
 </html>

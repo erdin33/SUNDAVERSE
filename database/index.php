@@ -1,8 +1,6 @@
 <<?php
-session_start(); // Mulai session
 include 'koneksi.php'; // Pastikan koneksi berhasil
 include 'cek_user.php'; // Cek apakah user sudah login
-session_destroy(); 
 echo "<pre>";
 print_r($_SESSION);  // Debug untuk menampilkan session
 echo "</pre>";
@@ -29,8 +27,8 @@ echo "</pre>";
         </div>
         <ul class="menu">
             <li><a href="index.php" id="home-link">Home</a></li>
-            <li><a href="aksara.html">Aksara</a></li>
-            <li><a href="quiz.html">Quiz</a></li>
+            <li><a href="../aksara.php">Aksara</a></li>
+            <li><a href="../quiz.html">Quiz</a></li>
             <li><a href="profile.php">Profile</a></li>
         </ul>
     </nav>

@@ -1,3 +1,12 @@
+<php 
+include 'database/cek_user.php';
+include 'database/koneksi.php';
+
+
+?>
+
+
+
 <!DOCTYPE html>
 <html lang="id">
 <head>
@@ -5,7 +14,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>SundaVerse</title>
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="/style/aksara.css">
+    <link rel="stylesheet" href="style/aksara.css">
 </head>
 <body>
     <!-- Navbar -->
@@ -14,10 +23,10 @@
             <a href="index.html">Sunda<span>Verse</span></a>
         </div>
         <ul class="menu">
-            <li><a href="index.html">Home</a></li>
+            <li><a href="database/index.php">Home</a></li>
             <li><a href="aksara.html" class="active">Aksara</a></li>
             <li><a href="quiz.html">Quiz</a></li>
-            <li><a href="profile.html">Profile</a></li>
+            <li><a href="database/profile.php">Profile</a></li>
         </ul>
     </nav>
 
