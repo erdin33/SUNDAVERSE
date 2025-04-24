@@ -1,6 +1,7 @@
 <?php 
 include 'koneksi.php'; // Pastikan koneksi berhasil
 include 'cek_user.php'; 
+include 'skore.php'; // Ambil total skor user
 ?>
     
 <!DOCTYPE html>
@@ -33,7 +34,7 @@ include 'cek_user.php';
             </div>
             <h2><?= $_SESSION['username']?></h2>
             <p class="username"><?= $_SESSION['email'] ?></p>
-            <div class="score-badge">Total skor: -</div>
+            <div class="score-badge">Total skor: <?= $total_skor ?></div>
         </div>
         
         <a href="editprofile.php" class="menu-card">
