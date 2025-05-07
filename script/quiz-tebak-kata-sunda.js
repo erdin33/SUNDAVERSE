@@ -1,194 +1,261 @@
-// Data pertanyaan
-const questions = [
-    {
-        question: "Malu",
-        answers: ["Nyeri", "Éra", "Sieun", "Hanjakal"],
-        correctAnswer: "Éra",
-        explanation: "Kata 'Malu' dalam bahasa Indonesia, dalam bahasa Sunda disebut 'Éra'."
-    },
-    {
-        question: "Tidur",
-        answers: ["Nyeri", "Bobo", "Sieun", "Hanjakal"],
-        correctAnswer: "Bobo",
-        explanation: "Kata 'Tidur' dalam bahasa Indonesia, dalam bahasa Sunda disebut 'Bobo'."
-    },
-    // Tambahkan lebih banyak pertanyaan di sini
-];
+document.addEventListener('DOMContentLoaded', function() {
+    const questionElement = document.getElementById('question');
+    const answerButtonsElement = document.getElementById('answer-buttons');
+    const feedbackElement = document.getElementById('feedback');
+    const prevButton = document.getElementById('prev-btn');
+    const nextButton = document.getElementById('next-btn');
+    const scoreElement = document.getElementById('score');
+    const popup = document.getElementById('popup');
+    const closePopupButton = document.getElementById('close-popup');
 
-let currentQuestionIndex = 0;
-let score = 0;
-let selectedAnswer = ""; // Variabel global untuk menyimpan jawaban yang dipilih
-let hasAnswered = false; // Variabel untuk melacak apakah pengguna sudah menjawab
+    let currentQuestionIndex = 0;
+    let score = 0;
+    let userAnswers = [];
+    let selectedAnswer = null;
 
-// Elemen HTML
-const questionElement = document.getElementById("question");
-const answerButtons = document.querySelectorAll(".answer-button");
-const scoreElement = document.getElementById("score");
-const feedbackElement = document.getElementById("feedback");
-const nextBtn = document.getElementById("next-btn");
-const prevBtn = document.getElementById("prev-btn");
+    // Initialize quiz with data from PHP
+    function initializeQuiz() {
+        showQuestion(currentQuestionIndex);
+        updateNavButtons();
+    }
 
-function loadQuestion() {
-    hasAnswered = false; // Reset status jawaban
+    function showQuestion(questionIndex) {
+        resetState();
+        
+        if (questionIndex >= quizQuestions.length) {
+            // All questions completed
+            finishQuiz();
+            return;
+        }
 
-    const currentQuestion = questions[currentQuestionIndex];
-    questionElement.textContent = currentQuestion.question;
+        const question = quizQuestions[questionIndex];
+        questionElement.innerText = question.question;
 
-    answerButtons.forEach((button, index) => {
-        button.textContent = currentQuestion.answers[index];
-        button.classList.remove("correct", "incorrect"); // Reset kelas
-        button.disabled = false; // Aktifkan tombol lagi
-        button.addEventListener("click", () => checkAnswer(button, currentQuestion.correctAnswer));
+        // Create and add answer buttons
+        question.answers.forEach(answer => {
+            const button = document.createElement('button');
+            button.innerText = answer.text;
+            button.classList.add('answer-button');
+            button.dataset.answerId = answer.id;
+            button.dataset.correct = answer.isCorrect;
+            
+            // Check if user has already answered this question
+            if (userAnswers[questionIndex] && userAnswers[questionIndex].answerId === answer.id) {
+                button.classList.add('selected');
+                selectedAnswer = button;
+            }
+            
+            button.addEventListener('click', selectAnswer);
+            answerButtonsElement.appendChild(button);
+        });
+
+        // Show feedback if user has already answered
+        if (userAnswers[questionIndex]) {
+            showFeedback(userAnswers[questionIndex].correct);
+        }
+    }
+
+    function resetState() {
+        feedbackElement.innerHTML = '';
+        feedbackElement.className = 'feedback';
+        selectedAnswer = null;
+        
+        while (answerButtonsElement.firstChild) {
+            answerButtonsElement.removeChild(answerButtonsElement.firstChild);
+        }
+    }
+
+    function selectAnswer(e) {
+        const selectedButton = e.target;
+    
+        // Hapus semua tanda pilihan sebelumnya
+        const buttons = answerButtonsElement.querySelectorAll('.answer-button');
+        buttons.forEach(button => button.classList.remove('selected', 'correct', 'incorrect'));
+    
+        // Tandai tombol yang dipilih
+        selectedButton.classList.add('selected');
+        selectedAnswer = selectedButton;
+    
+        const correct = selectedButton.dataset.correct === 'true';
+        const answerId = selectedButton.dataset.answerId;
+    
+        // Tandai warna sesuai kebenaran
+        selectedButton.classList.add(correct ? 'correct' : 'incorrect');
+    
+        // Simpan jawaban pengguna
+        userAnswers[currentQuestionIndex] = {
+            answerId: answerId,
+            correct: correct
+        };
+    
+        // Ambil jawaban benar untuk ditampilkan di feedback
+        const correctAnswerText = quizQuestions[currentQuestionIndex].answers.find(a => a.isCorrect).text;
+        showFeedback(correct, correctAnswerText);
+        buttons.forEach(button => {
+            button.disabled = true;
+        });
+    }
+    
+
+    function showFeedback(isCorrect, correctAnswer) {
+        const selectedText = selectedAnswer ? selectedAnswer.innerText : "-";
+        feedbackElement.classList.remove("correct", "incorrect");
+    
+        if (isCorrect) {
+            feedbackElement.innerHTML = `
+                <p class="hasil">Benar!</p>
+                <p class="judul-answer">Jawaban Anda "${selectedText}" Tepat.</p>
+                <div class="coba">
+                    <div class="answer-feedback">
+                        <span class="answer-label">Jawaban Anda</span>
+                        <p>${selectedText}</p>
+                    </div>
+                    <div class="answer-feedback">
+                        <span class="answer-label">Jawaban Benar</span>
+                        <p>${correctAnswer}</p>
+                    </div>
+                </div>
+            `;
+            feedbackElement.classList.add("correct");
+        } else {
+            feedbackElement.innerHTML = `
+                <p class="hasil">Salah!</p>
+                <p class="judul-answer">Jawaban Anda "${selectedText}" Tidak Tepat.</p>
+                <div class="coba">
+                    <div class="answer-feedback">
+                        <span class="wrong-answer">Jawaban Anda</span>
+                        <p>${selectedText}</p>
+                    </div>
+                    <div class="answer-feedback">
+                        <span class="answer-label">Jawaban Benar</span>
+                        <p>${correctAnswer}</p>
+                    </div>
+                </div>
+            `;
+            feedbackElement.classList.add("incorrect");
+        }
+    
+        feedbackElement.style.display = "block";
+    }
+    
+
+    function updateNavButtons() {
+        prevButton.style.visibility = currentQuestionIndex > 0 ? 'visible' : 'hidden';
+        nextButton.innerText = currentQuestionIndex === quizQuestions.length - 1 ? 'Selesai' : 'Selanjutnya >';
+    }
+
+    prevButton.addEventListener('click', () => {
+        if (currentQuestionIndex > 0) {
+            currentQuestionIndex--;
+            showQuestion(currentQuestionIndex);
+            updateNavButtons();
+        }
     });
 
-    // Nonaktifkan tombol "Sebelum" jika di pertanyaan pertama
-    if (currentQuestionIndex === 0) {
-        prevBtn.disabled = true;
-    } else {
-        prevBtn.disabled = false;
-    }
+    nextButton.addEventListener('click', () => {
+        // Check if user has selected an answer
+        if (!userAnswers[currentQuestionIndex] && currentQuestionIndex < quizQuestions.length) {
+            popup.style.display = 'flex';
+            return;
+        }
 
-    // Ubah teks tombol "Selanjutnya" menjadi "Selesai" jika di pertanyaan terakhir
-    if (currentQuestionIndex === questions.length - 1) {
-        nextBtn.textContent = "Selesai";
-    } else {
-        nextBtn.textContent = "Selanjutnya >";
-    }
-
-    // Sembunyikan feedback
-    feedbackElement.style.display = "none"; // Reset feedback
-    feedbackElement.classList.remove("correct", "incorrect"); // Hapus kelas feedback
-}
-
-function checkAnswer(selectedButton, correctAnswer) {
-    // Reset semua tombol terlebih dahulu
-    answerButtons.forEach(button => {
-        button.classList.remove("correct", "incorrect"); // Hapus semua kelas
+        currentQuestionIndex++;
+        
+        if (currentQuestionIndex < quizQuestions.length) {
+            showQuestion(currentQuestionIndex);
+        } else {
+            finishQuiz();
+        }
+        
+        updateNavButtons();
     });
 
-    // Tandai tombol yang dipilih sebagai benar atau salah
-    const isCorrect = selectedButton.textContent === correctAnswer;
-    selectedButton.classList.add(isCorrect ? "correct" : "incorrect");
-
-    // Simpan jawaban yang dipilih
-    selectedAnswer = selectedButton.textContent;
-
-    // Perbarui skor jika jawaban benar
-    if (isCorrect) {
-        score += 20;
-    }
-
-    // Tampilkan feedback
-    showFeedback(isCorrect, correctAnswer);
-
-    // Perbarui skor di layar
-    scoreElement.textContent = `Skor: ${score}`;
-
-    // Nonaktifkan semua tombol setelah menjawab
-    answerButtons.forEach(button => {
-        button.disabled = true;
+    closePopupButton.addEventListener('click', () => {
+        popup.style.display = 'none';
     });
 
-    // Aktifkan tombol "Selanjutnya"
-    nextBtn.disabled = false;
-
-    // Setel status jawaban menjadi true
-    hasAnswered = true;
-}
-
-// Fungsi untuk menampilkan feedback
-function showFeedback(isCorrect, correctAnswer) {
-    // Hapus kelas sebelumnya (jika ada)
-    feedbackElement.classList.remove("correct", "incorrect");
-
-    if (isCorrect) {
-        // Jika jawaban benar
-        feedbackElement.innerHTML = `
-            <p class="hasil">Benar!</p>
-            <p class="judul-answer">Jawaban Anda "${selectedAnswer}" Tepat.</p>
-            <div class="coba">
-                <div class="answer-feedback">
-                    <span class="answer-label">Jawaban Anda</span>
-                    <p>${selectedAnswer}</p>
-                </div>
-                <div class="answer-feedback">
-                    <span class="answer-label">Jawaban Benar</span>
-                    <p>${correctAnswer}</p>
-                </div>
-            </div>
-            <p>${questions[currentQuestionIndex].explanation}</p>
-        `;
-        feedbackElement.classList.add("correct");
-    } else {
-        // Jika jawaban salah
-        feedbackElement.innerHTML = `
-            <p class="hasil">Salah!</p>
-            <p class="judul-answer">Jawaban Anda "${selectedAnswer}" Tidak Tepat.</p>
-            <div class="coba">
-                <div class="answer-feedback">
-                    <span class="wrong-answer">Jawaban Anda</span>
-                    <p>${selectedAnswer}</p>
-                </div>
-                <div class="answer-feedback">
-                    <span class="answer-label">Jawaban Benar</span>
-                    <p>${correctAnswer}</p>
-                </div>
-            </div>
-            <p>${questions[currentQuestionIndex].explanation}</p>
-        `;
-        feedbackElement.classList.add("incorrect");
+    function finishQuiz() {
+        // Calculate final score
+        let totalScore = 0;
+        let totalPossibleScore = 0;
+        
+        for (let i = 0; i < quizQuestions.length; i++) {
+            totalPossibleScore += quizQuestions[i].nilai || 10; // Default 10 points if not specified
+            if (userAnswers[i] && userAnswers[i].correct) {
+                totalScore += quizQuestions[i].nilai || 10;
+            }
+        }
+        
+        // Calculate percentage
+        const finalScore = Math.round(totalScore);        
+        // Update display
+        questionElement.innerText = `Quiz Selesai!`;
+        answerButtonsElement.innerHTML = '';
+        scoreElement.innerText = `Skor Akhir: ${totalScore}`;
+        
+        // Create a message based on score
+        let message = '';
+        if (finalScore >= 80) {
+            message = 'Luar biasa! Anda sangat menguasai materi ini.';
+        } else if (finalScore >= 60) {
+            message = 'Bagus! Anda memiliki pemahaman yang baik.';
+        } else {
+            message = 'Terus berlatih! Anda akan semakin baik.';
+        }
+        
+        feedbackElement.innerHTML = message;
+        feedbackElement.className = 'feedback final-feedback';
+        
+        // Save score to database
+        saveScore(finalScore);
+        
+        // Hide navigation buttons
+        prevButton.style.visibility = 'hidden';
+        nextButton.style.visibility = 'hidden';
     }
 
-    feedbackElement.style.display = "block";
-}
+    function saveScore(finalScore) {
+        // Create form data to send
+        const formData = new FormData();
+        formData.append('quiz_type', quizType);
+        formData.append('score', finalScore);
+        
+        // Send score to server using fetch API
+        fetch('./database/simpan_score.php', {
+            method: 'POST',
+            body: formData
+        })
+        .then(response => {
+            // Check if the response is valid before parsing JSON
+            if (!response.ok) {
+                throw new Error(`Server responded with status: ${response.status}`);
+            }
+            
+            // Get the content type from the response
+            const contentType = response.headers.get('content-type');
+            
+            // Only try to parse as JSON if the content type is actually JSON
+            if (contentType && contentType.includes('application/json')) {
+                return response.json();
+            } else {
+                // If it's not JSON, get the text and throw an error
+                return response.text().then(text => {
+                    throw new Error(`Received non-JSON response: ${text.substring(0, 100)}...`);
+                });
+            }
+        })
+        .then(data => {
+            console.log('Score saved:', data);
+            // Show success message to user
+            feedbackElement.innerHTML += '<p class="success-message">Skor telah disimpan!</p>';
+        })
+        .catch(error => {
+            console.error('Error saving score:', error);
+            // Show error message to user
+            feedbackElement.innerHTML += `<p class="error-message">Gagal menyimpan skor: ${error.message}</p>`;
+        });
+    }
 
-const popup = document.getElementById("popup");
-const closePopupBtn = document.getElementById("close-popup");
-
-function showPopup() {
-    popup.style.display = "flex"; // Tampilkan pop-up
-}
-
-closePopupBtn.addEventListener("click", () => {
-    popup.style.display = "none"; // Sembunyikan pop-up
+    // Start the quiz
+    initializeQuiz();
 });
-
-function nextQuestion() {
-    if (!hasAnswered) {
-        showPopup(); // Tampilkan pop-up kustom
-        return; // Hentikan proses jika belum menjawab
-    }
-
-    currentQuestionIndex++;
-    if (currentQuestionIndex >= questions.length) {
-        alert(`Permainan selesai! Skor akhir Anda: ${score}`);
-        window.location.href = "quiz.html"; // Kembali ke halaman quiz
-    } else {
-        loadQuestion();
-        hasAnswered = false; // Reset status jawaban untuk pertanyaan baru
-    }
-}   
-
-// Fungsi untuk pindah ke pertanyaan sebelumnya
-function previousQuestion() {
-    if (currentQuestionIndex > 0) {
-        currentQuestionIndex--;
-        loadQuestion();
-    }
-}
-
-// Event listeners
-nextBtn.addEventListener("click", () => {
-    if (nextBtn.textContent === "Selesai") {
-        alert(`Permainan selesai! Skor akhir Anda: ${score}`);
-        window.location.href = "quiz.html"; // Kembali ke halaman quiz
-    } else {
-        nextQuestion();
-    }
-});
-
-
-prevBtn.addEventListener("click", previousQuestion);
-
-// Load the first question when the page loads
-loadQuestion();

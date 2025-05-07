@@ -34,7 +34,7 @@ document.addEventListener("DOMContentLoaded", () => {
     startQuizBtn.addEventListener("click", () => {
         if (selectedQuiz) {
             // Redirect ke halaman quiz yang sesuai
-            window.location.href = `quiz-${selectedQuiz}.html`;
+            window.location.href = `quiz-${selectedQuiz}.php`;
         } else {
             // Tampilkan modal pop-up
             popupModal.style.display = "flex";

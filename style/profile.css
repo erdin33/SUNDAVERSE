@@ -127,10 +127,13 @@ body::before {
     border: 5px solid #e9cb4f;
 }
 
-.profile-picture svg {
-    width: 70px; /* Increased size */
-    height: 70px; /* Increased size */
+.profile-picture img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: 50%;
 }
+
 
 .username {
     color: #888;

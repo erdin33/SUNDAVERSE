@@ -1,3 +1,26 @@
+<?php
+include 'database/koneksi.php';
+
+session_start();
+
+// Cek apakah user sudah login
+if (!isset($_SESSION['id_user'])) {
+    header("Location: login.html"); // Redirect ke halaman login
+    exit(); // Pastikan script berhenti setelah redirect
+}
+
+// Data user dari session
+$isLoggedIn = true;
+$id_user = $_SESSION['id_user']; // Mengambil id_user dari session
+$username = $_SESSION['username'] ?? ''; // Jika tidak ada, kosongkan username
+$email = $_SESSION['email'] ?? ''; // Jika tidak ada, kosongkan email
+
+// Optional: Tambahkan regenerasi session untuk keamanan
+session_regenerate_id(true); // Mengganti session ID untuk mencegah session fixation
+
+
+?>
+
 <!DOCTYPE html>
 <html lang="id">
 <head>
@@ -5,19 +28,19 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>SundaVerse</title>
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="quiz.css">
+    <link rel="stylesheet" href="style/quiz.css">
 </head>
 <body>
     <!-- Navbar -->
     <nav class="navbar">
         <div class="logo">
-            <a href="index.html">Sunda<span>Verse</span></a>
+            <a href="database/index.php">Sunda<span>Verse</span></a>
         </div>
         <ul class="menu">
-            <li><a href="index.html" id="home-link">Home</a></li>
-            <li><a href="aksara.html">Aksara</a></li>
+            <li><a href="database/index.php" id="home-link">Home</a></li>
+            <li><a href="aksara.php">Aksara</a></li>
             <li><a href="quiz.html" id="quiz-link">Quiz</a></li>
-            <li><a href="profile.html">Profile</a></li>
+            <li><a href="database/profile.php">Profile</a></li>
         </ul>
     </nav>
 
@@ -74,6 +97,6 @@
         </div>
     </section>
 
-    <script src="quiz.js"></script>
+    <script src="script/quiz.js"></script>
 </body>
 </html>

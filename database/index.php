@@ -1,6 +1,9 @@
-<<?php
-include 'koneksi.php'; // Pastikan koneksi berhasil
-include 'cek_user.php'; // Cek apakah user sudah login
+<?php
+session_start();
+
+// Cek apakah user sudah login, jika ya set $isLoggedIn menjadi true
+$isLoggedIn = isset($_SESSION['id_user']) ? true : false;
+$username = $_SESSION['username'] ?? ''; // Ambil username dari session jika ada
 ?>
 
 <!DOCTYPE html>
@@ -21,7 +24,7 @@ include 'cek_user.php'; // Cek apakah user sudah login
         <ul class="menu">
             <li><a href="index.php" id="home-link">Home</a></li>
             <li><a href="../aksara.php">Aksara</a></li>
-            <li><a href="../quiz.html">Quiz</a></li>
+            <li><a href="../quiz.php">Quiz</a></li>
             <li><a href="profile.php">Profile</a></li>
         </ul>
     </nav>
@@ -31,6 +34,7 @@ include 'cek_user.php'; // Cek apakah user sudah login
         <div class="satu-content">
             <h1>Ngamumulé Basa Sunda Ti Ayeuna!</h1>
             <p>Diajar basa Sunda kiwari langkung gampang!<br>ku <span><span1>Sunda</span1>Verse</span>, anjeun tiasa latihan aksara Sunda, terjemahan,<br>jeung kalimah sapopoe.</p>
+            
             <?php if (!$isLoggedIn): ?>
                 <div>
                     <button><a href="../login.html">Masuk / Login!</a></button>
@@ -38,15 +42,13 @@ include 'cek_user.php'; // Cek apakah user sudah login
             <?php else: ?>
                 <p>Halo, <?= htmlspecialchars($username) ?>!</p>
             <?php endif; ?>
-
-
         </div>
         <div class="satu-image">    
             <img src="../images/foto-home.png" alt="seni Sunda">
         </div>
     </section>
 
-    <!-----Section Tengah-->
+    <!---Section Tengah-->
     <section class="dua-home">
         <div class="dua-content">
             <h2>Ngulik Sunda</h2>
@@ -86,13 +88,6 @@ include 'cek_user.php'; // Cek apakah user sudah login
         </div>
     </section>
 
-    <!---Section Bawah Kedua-->
-    <section class="sblm-ftr">
-        <div class="sblm-content">
-            <p>Bahasa Sunda juga memiliki sistem tulisan sendiri yang dikenal sebagai Aksara Sunda Kuno. Aksara ini digunakan sejak zaman kerajaan dan masih dilestarikan hingga kini. Mau belajar tentang aksara Sunda? Yuk, kunjungin halaman <a href="aksara.html">Aksara!</a></p>
-        </div>
-    </section>
-    
     <!---Section Footer-->
     <section class="footer">
         <div class="footer-content">

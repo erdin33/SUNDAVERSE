@@ -1,8 +1,5 @@
-<php 
-include 'database/cek_user.php';
-include 'database/koneksi.php';
-
-
+<?php 
+session_start(); 
 ?>
 
 

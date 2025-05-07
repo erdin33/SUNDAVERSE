@@ -1,7 +1,19 @@
 <?php 
 include 'koneksi.php'; // Pastikan koneksi berhasil
 include 'cek_user.php'; 
-include 'skore.php'; // Ambil total skor user
+include 'skore.php';
+
+
+$id_user = $_SESSION['id_user'];
+
+// Ambil data user dari database
+$query = "SELECT nama, email, foto FROM user WHERE id_user = ?";
+$stmt = $koneksi->prepare($query);
+$stmt->bind_param("i", $id_user);
+$stmt->execute();
+$stmt->bind_result($username, $email, $foto);
+$stmt->fetch();
+$stmt->close();// Ambil total skor user
 ?>
     
 <!DOCTYPE html>
@@ -28,10 +40,13 @@ include 'skore.php'; // Ambil total skor user
     <div class="container">
         <div class="profile-card">
             <div class="profile-picture">
-                <svg width="50" height="50" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                    <path d="M12 12C14.21 12 16 10.21 16 8C16 5.79 14.21 4 12 4C9.79 4 8 5.79 8 8C8 10.21 9.79 12 12 12ZM12 14C9.33 14 4 15.34 4 18V20H20V18C20 15.34 14.67 14 12 14Z" fill="white"/>
-                </svg>
+                <?php if (!empty($foto) && file_exists("../uploads/foto/" . $foto)): ?>
+                    <img src="../uploads/foto/<?= htmlspecialchars($foto) ?>" alt="Foto Profil" width='100' height='100' >
+                <?php else: ?>
+                    <img src="../images/default_profile.png" alt="Foto Profil">
+                <?php endif; ?>
             </div>
+
             <h2><?= $_SESSION['username']?></h2>
             <p class="username"><?= $_SESSION['email'] ?></p>
             <div class="score-badge">Total skor: <?= $total_skor ?></div>
@@ -64,7 +79,7 @@ include 'skore.php'; // Ambil total skor user
             Terms of Service
         </a>
         
-        <a href="logout.php" class="menu-card">
+        <a href="logout.php" class="menu-card" onclick="openConfirmLogoutWindow(event)">
             <div class="menu-icon">
                 <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
                     <path d="M10.09 15.59L11.5 17L16.5 12L11.5 7L10.09 8.41L12.67 11H3V13H12.67L10.09 15.59ZM19 3H5C3.89 3 3 3.9 3 5V9H5V5H19V19H5V15H3V19C3 20.1 3.89 21 5 21H19C20.1 21 21 20.1 21 19V5C21 3.9 20.1 3 19 3Z" fill="black"/>
@@ -72,6 +87,8 @@ include 'skore.php'; // Ambil total skor user
             </div>
             Keluar
         </a>
+
+
     </div>
     
     <section class="footer">
@@ -91,5 +108,6 @@ include 'skore.php'; // Ambil total skor user
             </div>
         </div>
     </section>
+    
 </body>
 </html>

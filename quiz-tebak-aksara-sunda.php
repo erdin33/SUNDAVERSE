@@ -1,3 +1,19 @@
+<?php
+require_once 'database/pertanyaan.php';
+include 'database/koneksi.php';
+
+$quizType = 2;
+if(isset($_GET['type'])) {
+    $quizType = (int)$_GET['type'];
+}
+
+// Get questions for this quiz type
+$questions = getQuestionsByQuizType($quizType);
+
+// Convert questions to JSON for JavaScript
+$questionsJson = json_encode($questions);
+?>
+
 <!DOCTYPE html>
 <html lang="id">
 <head>
@@ -5,37 +21,59 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>SundaVerse</title>
     <link id="font-API" href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="quiz-tebak-aksara-sunda.css">
+    <link rel="stylesheet" href="style/quiz-tebak-aksara-sunda.css">
 </head>
 <body>
     <!-- Navbar -->
     <nav class="navbar">
         <div class="logo">
-            <a href="index.html">Sunda<span>Verse</span></a>
+            <a href="database/index.php">Sunda<span>Verse</span></a>
         </div>
         <ul class="menu">
-            <li><a href="index.html" id="home-link">Home</a></li>
-            <li><a href="aksara.html">Aksara</a></li>
+            <li><a href="database/index.php" id="home-link">Home</a></li>
+            <li><a href="aksara.php">Aksara</a></li>
             <li><a href="quiz.html" id="quiz-link">Quiz</a></li>
-            <li><a href="profile.html">Profile</a></li>
+            <li><a href="database/profile.php">Profile</a></li>
         </ul>
     </nav>
 
     <!--Section Quiz-->
     <div class="quiz-container">
-        <h1>Tebak Aksara Bahasa Sunda</h1>
+        <?php
+        // Determine quiz title based on type
+        $quizTitle = "";
+        switch($quizType) {
+            case 1:
+                $quizTitle = "Tebak Kata Bahasa Sunda";
+                $instruction = "Apa terjemahan kata berikut dalam bahasa Sunda?";
+                break;
+            case 2:
+                $quizTitle = "Tebak Aksara Sunda";
+                $instruction = "Pilih aksara Sunda yang tepat untuk kata berikut:";
+                break;
+            case 3:
+                $quizTitle = "Drag and Drop Kata Sunda";
+                $instruction = "Susun kata-kata berikut menjadi kalimat bahasa Sunda yang benar:";
+                break;
+            case 4:
+                $quizTitle = "Drag and Drop Aksara Sunda";
+                $instruction = "Susun aksara-aksara berikut menjadi kata dalam bahasa Sunda yang benar:";
+                break;
+            default:
+                $quizTitle = "Quiz Bahasa Sunda";
+                $instruction = "Jawab pertanyaan berikut:";
+        }
+        ?>
+        <h1><?php echo $quizTitle; ?></h1>
         <div class="score-container">
             <span id="score">Skor: 0</span>
         </div>
         <div class="perintah">
-            <p>Apa terjemahan kata berikut dalam bahasa Sunda?</p>
+            <p><?php echo $instruction; ?></p>
         </div>
-        <h2 class="question" id="question">Malu</h2>
+        <h2 class="question" id="question">Loading question...</h2>
         <div id="answer-buttons" class="answer-buttons">
-            <button class="answer-button">Nyeri</button>
-            <button class="answer-button">Éra</button>
-            <button class="answer-button">Sieun</button>
-            <button class="answer-button">Hanjakal</button>
+            <!-- Buttons will be added dynamically by JavaScript -->
         </div>
         <div id="feedback" class="feedback"></div>
         <div class="navigation">
@@ -82,6 +120,12 @@
         </div>
     </section>
 
-    <script src="quiz-tebak-aksara-sunda.js"></script>
+
+    <script>
+    // Pass PHP data to JavaScript
+    const quizQuestions = <?php echo $questionsJson; ?>;
+    const quizType = <?php echo $quizType; ?>;
+    </script>
+    <script src="script/quiz-tebak-aksara-sunda.js"></script>
 </body>
 </html>

@@ -8,7 +8,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
     $check = mysqli_query($koneksi, "SELECT * FROM user WHERE nama='$nama' OR email='$email'");
     if (mysqli_num_rows($check) > 0) {
-        echo "<script>alert('Username atau email sudah digunakan.'); window.location.href='../register.html';</script>";
+        echo "<script>alert('Username atau email sudah digunakan.'); window.location.href='../sign.html';</script>";
     } else {
         $query = "INSERT INTO user (nama, email, password) VALUES ('$nama', '$email', '$password')";
         if (mysqli_query($koneksi, $query)) {
