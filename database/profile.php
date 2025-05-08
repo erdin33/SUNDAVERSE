@@ -33,7 +33,7 @@ $stmt->close();// Ambil total skor user
             <li><a href="index.php" id="home-link">Home</a></li>
             <li><a href="../aksara.php">Aksara</a></li>
             <li><a href="../quiz.html">Quiz</a></li>
-            <li><a href="profile.php">Profile</a></li>
+            <li><a href="profile.php" class="active">Profile</a></li>
         </ul>
     </nav>
     

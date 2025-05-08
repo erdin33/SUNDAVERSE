@@ -19,7 +19,7 @@ include 'database/koneksi.php';
         <ul class="menu">
             <li><a href="database/index.php" id="home-link">Home</a></li>
             <li><a href="aksara.php">Aksara</a></li>
-            <li><a href="quiz.html" id="quiz-link">Quiz</a></li>
+            <li><a href="quiz.html"class="active"</a></li>
             <li><a href="database/profile.php">Profile</a></li>
         </ul>
     </nav>

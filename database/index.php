@@ -22,7 +22,7 @@ $username = $_SESSION['username'] ?? ''; // Ambil username dari session jika ada
             <a href="index.php">Sunda<span>Verse</span></a>
         </div>
         <ul class="menu">
-            <li><a href="index.php" id="home-link">Home</a></li>
+            <li><a href="index.php" class="active">Home</a></li>
             <li><a href="../aksara.php">Aksara</a></li>
             <li><a href="../quiz.php">Quiz</a></li>
             <li><a href="profile.php">Profile</a></li>
