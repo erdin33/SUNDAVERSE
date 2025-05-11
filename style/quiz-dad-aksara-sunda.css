@@ -82,19 +82,26 @@ body {
     align-items: center;
     gap: 30px;
     margin-top: 20px;
+    width: 100%;
 }
 
-/* Area Target */
+/* Area Target - Modified for horizontal layout */
 .target-area {
-    display: grid;
-    grid-template-columns: repeat(10, 100px);
+    display: flex; /* Changed from grid to flex */
+    flex-direction: row; /* Ensure horizontal layout */
+    flex-wrap: nowrap; /* Prevent wrapping to next line */
     gap: 10px;
     justify-content: center;
+    overflow-x: auto; /* Add horizontal scroll if needed */
+    padding-bottom: 10px; /* Space for scrollbar */
+    width: 100%;
+    max-width: 90vw; /* Limit width to prevent layout issues */
 }
 
 .target {
     width: 100px;
     height: 100px;
+    min-width: 100px; /* Prevent shrinking */
     background-color: #e0e0e0; /* Warna abu-abu untuk area kosong */
     border: 2px dashed #ccc; /* Garis putus-putus */
     border-radius: 5px;
@@ -117,16 +124,23 @@ body {
     border-color: #f44336; /* Hilangkan garis putus-putus */
 }
 
-/* Potongan Puzzle */
+/* Potongan Puzzle - Modified for horizontal layout */
 .pieces {
     display: flex;
+    flex-direction: row; /* Ensure horizontal layout */
+    flex-wrap: nowrap; /* Prevent wrapping to next line */
     gap: 10px;
     justify-content: center;
+    overflow-x: auto; /* Add horizontal scroll if needed */
+    padding-bottom: 10px; /* Space for scrollbar */
+    width: 100%;
+    max-width: 90vw; /* Limit width to prevent layout issues */
 }
 
 .piece {
     width: 100px;
     height: 100px;
+    min-width: 100px; /* Prevent shrinking */
     background-color: #0d47a1; /* Warna biru untuk potongan puzzle */
     color: white;
     display: flex;
@@ -232,11 +246,12 @@ body {
     cursor: pointer;
 }
 
+
 /* Footer */
 .footer {
     background-color: #1E3A5F;
     color: #fff;
-    padding: 60px 40px;
+    padding: 30px 150px;
     text-align: center;
 }
 
@@ -247,23 +262,53 @@ body {
 }
 
 .footer .judul span {
-    color: #D4A017; /* Warna emas untuk footer */
+    color: #D4A017;
 }
 
 .footer .link-kosong {
     font-size: 18px;
     display: flex;
+    flex-direction: row;
     justify-content: center;
-    gap: 20px;
-    margin-bottom: 20px;
+    align-items: center;
+    gap: 50px;
+    border-bottom: 2px solid #262626; /* Garis putih tipis */
+    padding-bottom: 20px;
+    margin: 50px 100px;
 }
 
+.footer .lokasi p {
+    font-size: 18px;
+    font-weight: 100;
+    border-bottom: 2px solid #262626; /* Garis putih tipis */
+    padding-bottom: 30px;
+    margin: 50px 100px;
+}
 .footer .copyright p {
-    font-size: 16px;
-    font-weight: 300;
+    font-size: 18px;
+    font-weight: 100;
 }
 
-/* Responsive Design */
+/* General Styling */
+section {
+    padding: 50px;
+}
+
+h1, h2, h3 {
+    font-weight: 600;
+}
+
+p {
+    font-size: 1rem;
+}
+
+button a {
+    text-decoration: none;
+    color: inherit;
+}
+
+
+/* Responsive Design - Adjusted to maintain horizontal layout */
 @media (max-width: 768px) {
     .navbar {
         flex-direction: column;
@@ -280,14 +325,12 @@ body {
         padding: 20px;
     }
 
-    .target-area {
-        grid-template-columns: repeat(2, 80px);
-    }
-
+    /* Keep horizontal layout but make pieces smaller */
     .piece,
     .target {
         width: 800px;
         height: 80px;
+        min-width: 80px;
         font-size: 16px;
     }
 

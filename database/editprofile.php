@@ -45,7 +45,7 @@ if (empty($foto) || !file_exists($foto_path)) {
             <li><a href="../quiz.php">Quiz</a></li>
             <li><a href="profile.php">Profile</a></li>
         </ul>
-    </nav>
+</nav>
 
 <!-- CONTAINER -->
 <div class="container">

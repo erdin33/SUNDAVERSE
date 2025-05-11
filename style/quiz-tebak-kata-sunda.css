@@ -104,7 +104,7 @@ body {
 
 .answer-buttons {
     display: grid;
-    grid-template-columns: repeat(2, 1fr);
+    grid-template-columns: repeat(2, fr);
     gap: 30px 60px;
     margin-bottom: 65px;
 }
