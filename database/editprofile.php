@@ -36,16 +36,16 @@ if (empty($foto) || !file_exists($foto_path)) {
 
 <!-- NAVBAR -->
 <nav class="navbar">
-    <div class="logo">
-        <a href="index.html">Sunda<span>Verse</span></a>
-    </div>
-    <ul class="menu">
-        <li><a href="index.php" id="home-link">Home</a></li>
-        <li><a href="../aksara.php">Aksara</a></li>
-        <li><a href="../quiz.html">Quiz</a></li>
-        <li><a href="profile.php">Profile</a></li>
-    </ul>
-</nav>
+        <div class="logo">
+            <a href="index.php">Sunda<span>Verse</span></a>
+        </div>
+        <ul class="menu">
+            <li><a href="index.php" id="home-link">Home</a></li>
+            <li><a href="../aksara.php">Aksara</a></li>
+            <li><a href="../quiz.php">Quiz</a></li>
+            <li><a href="profile.php">Profile</a></li>
+        </ul>
+    </nav>
 
 <!-- CONTAINER -->
 <div class="container">

@@ -87,7 +87,7 @@ body {
 /* Area Target */
 .target-area {
     display: grid;
-    grid-template-columns: repeat(3, 100px);
+    grid-template-columns: repeat(10, 100px);
     gap: 10px;
     justify-content: center;
 }
@@ -286,7 +286,7 @@ body {
 
     .piece,
     .target {
-        width: 80px;
+        width: 800px;
         height: 80px;
         font-size: 16px;
     }
