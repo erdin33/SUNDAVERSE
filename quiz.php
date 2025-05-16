@@ -37,9 +37,9 @@ session_regenerate_id(true); // Mengganti session ID untuk mencegah session fixa
             <a href="database/index.php">Sunda<span>Verse</span></a>
         </div>
         <ul class="menu">
-            <li><a href="database/index.php" id="home-link">Home</a></li>
+            <li><a href="database/index.php">Home</a></li>
             <li><a href="aksara.php">Aksara</a></li>
-            <li><a href="quiz.html" id="quiz-link">Quiz</a></li>
+            <li><a href="quiz.php" class="active">Quiz</a></li>
             <li><a href="database/profile.php">Profile</a></li>
         </ul>
     </nav>
@@ -85,8 +85,8 @@ session_regenerate_id(true); // Mengganti session ID untuk mencegah session fixa
                 <h2>Sunda<span>Verse</span></h2>
             </div>
             <div class="link-kosong">
-                <p>FAQ</p>
-                <p>Terms of Service</p>
+                <a href="faq.html">FAQ</a>
+                <a href="tos.html">Terms of Service</a>
             </div>
             <div class="lokasi">
                 <p>Informatika, Universitas Siliwangi</p>

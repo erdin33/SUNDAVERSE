@@ -7,14 +7,33 @@
 
 body {
     font-family: 'Poppins';
-    background-image: url('../images/batik2.png');
+    background-image: url(../images/batik2.png);
     background-size: 100%;
     background-repeat: no-repeat;
     background-color: #F5EFFF;
     line-height: 1.6;
 }
 
-/* Navbar styles - Diperbesar */
+/* Header */
+.navbar {
+    background-color: #1E3A5F;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 15px 80px;
+}
+
+.logo span {
+    color: #D4A017;
+}
+
+.logo a {
+    color: #fff;
+    text-decoration: none;
+    font-weight: 800;
+    font-size: 24px;
+}
+
 .navbar {
     display: flex;
     justify-content: space-between;
@@ -23,17 +42,6 @@ body {
     background-color: #1e3a5f;
     color: white;
     height: 80px; /* Tinggi tetap */
-}
-
-.logo span {
-    color: #D4A017;
-}
-
-.logo a {
-    font-size: 2rem; /* Ukuran logo diperbesar */
-    font-weight: 700;
-    color: white;
-    text-decoration: none;
 }
 
 .menu {
@@ -75,6 +83,8 @@ body {
 .menu a:hover {
     color: #D4A017 !important;
 }
+
+
 /* Section Header*/
 .header {
     display: flex;
@@ -114,7 +124,6 @@ body {
 
 /* Section Utama*/
 .utama {
-    margin-top: 100px;
     padding: 1px;
     justify-content: center;
     display: flex;
@@ -183,6 +192,7 @@ body {
     border-radius: 13px;
     box-shadow: 0 2px 5px #1E3A5F;
     margin-bottom: 40px;
+    text-align: center;
 }
 
 /* Section Ngalagena */
@@ -199,6 +209,7 @@ body {
     border-radius: 13px;
     box-shadow: 0 2px 5px #1E3A5F;
     margin-bottom: 40px;
+    text-align: center;
 }
 
 /* Section Tanda */
@@ -215,6 +226,7 @@ body {
     border-radius: 13px;
     box-shadow: 0 2px 5px #1E3A5F;
     margin-bottom: 40px;
+    text-align: center;
 }
 
 /* Section Angka */
@@ -231,13 +243,14 @@ body {
     border-radius: 13px;
     box-shadow: 0 2px 5px #1E3A5F;
     margin-bottom: 40px;
+    text-align: center;
 }
 
 /* Footer */
 .footer {
     background-color: #1E3A5F;
     color: #fff;
-    padding: 70px 150px;
+    padding: 30px 150px;
     text-align: center;
 }
 
@@ -251,6 +264,13 @@ body {
     color: #D4A017;
 }
 
+.link-kosong a {
+    color: #fff !important;
+    text-decoration: none;
+    font-weight: 500;
+    transition: color 0.3s ease;
+}
+
 .footer .link-kosong {
     font-size: 18px;
     display: flex;
@@ -259,7 +279,7 @@ body {
     align-items: center;
     gap: 50px;
     border-bottom: 2px solid #262626; /* Garis putih tipis */
-    padding-bottom: 50px;
+    padding-bottom: 20px;
     margin: 50px 100px;
 }
 
@@ -267,7 +287,7 @@ body {
     font-size: 18px;
     font-weight: 100;
     border-bottom: 2px solid #262626; /* Garis putih tipis */
-    padding-bottom: 50px;
+    padding-bottom: 30px;
     margin: 50px 100px;
 }
 .footer .copyright p {

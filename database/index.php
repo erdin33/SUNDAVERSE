@@ -88,6 +88,12 @@ $username = $_SESSION['username'] ?? ''; // Ambil username dari session jika ada
         </div>
     </section>
 
+     <section class="sblm-ftr">
+        <div class="sblm-content">
+            <p>Bahasa Sunda juga memiliki sistem tulisan sendiri yang dikenal sebagai Aksara Sunda Kuno. Aksara ini digunakan sejak zaman kerajaan dan masih dilestarikan hingga kini. Mau belajar tentang aksara Sunda? Yuk, kunjungin halaman <a href="aksara">Aksara!</a></p>
+        </div>
+    </section>
+
     <!---Section Footer-->
     <section class="footer">
         <div class="footer-content">
@@ -95,8 +101,8 @@ $username = $_SESSION['username'] ?? ''; // Ambil username dari session jika ada
                 <h2>Sunda<span>Verse</span></h2>
             </div>
             <div class="link-kosong">
-                <p>FAQ</p>
-                <p>Terms of Service</p>
+                <a href="../faq.html">FAQ</a>
+                <a href="../tos.html">Terms of Service</a>
             </div>
             <div class="lokasi">
                 <p>Informatika, Universitas Siliwangi</p>

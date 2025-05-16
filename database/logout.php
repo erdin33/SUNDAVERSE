@@ -7,7 +7,7 @@ if (isset($_POST['confirm_logout'])) {
     header("Location: ../login.html");
     exit();
 } elseif (isset($_POST['cancel'])) {
-    header("Location: profile.php"); // atau dashboard.php
+    header("Location: profile.php"); // 
     exit();
 }
 ?>

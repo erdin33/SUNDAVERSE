@@ -33,7 +33,7 @@ $stmt->close();// Ambil total skor user
             <li><a href="index.php" id="home-link">Home</a></li>
             <li><a href="../aksara.php">Aksara</a></li>
             <li><a href="../quiz.php">Quiz</a></li>
-            <li><a href="profile.php">Profile</a></li>
+            <li><a href="profile.php" class="active">Profile</a></li>
         </ul>
     </nav>
     
@@ -97,8 +97,8 @@ $stmt->close();// Ambil total skor user
                 <h2>Sunda<span>Verse</span></h2>
             </div>
             <div class="link-kosong">
-                <p>FAQ</p>
-                <p>Terms of Service</p>
+                <a href="../faq.html">FAQ</a>
+                <a href="../tos.html">Terms of Service</a>
             </div>
             <div class="lokasi">
                 <p>Informatika, Universitas Siliwangi</p>

@@ -208,6 +208,10 @@ document.addEventListener('DOMContentLoaded', function() {
         
         // Save score to database
         saveScore(finalScore);
+
+        setTimeout(() => {
+                window.location.href = "./quiz.php";
+            }, 1500);
         
         // Hide navigation buttons
         prevButton.style.visibility = 'hidden';

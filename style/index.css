@@ -7,8 +7,7 @@
 
 body {
     font-family: 'Poppins';
-    background-image: url('../images/background-home.png'); /* Wave pattern background */
-
+    background-image: url(../images/batik1.png);
     background-size: 100%;
     background-color: #F5EFFF;
     line-height: 1.6;
@@ -242,6 +241,13 @@ body {
     color: #D4A017;
 }
 
+
+.link-kosong a {
+    color: #fff !important;
+    text-decoration: none;
+    font-weight: 500;
+    transition: color 0.3s ease;
+}
 .footer .link-kosong {
     font-size: 18px;
     display: flex;
@@ -262,6 +268,7 @@ body {
     margin: 50px 100px;
 }
 .footer .copyright p {
+    color: white;
     font-size: 18px;
     font-weight: 100;
 }
@@ -276,6 +283,7 @@ h1, h2, h3 {
 }
 
 p {
+    
     font-size: 1rem;
 }
 

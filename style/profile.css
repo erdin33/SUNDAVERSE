@@ -8,31 +8,20 @@
     font-family: 'Poppins', Verdana, Geneva, Tahoma, sans-serif;
 }
 
-html, body {
+
+
+html{
     height: 100%;
     min-height: 100vh;
     overflow-x: hidden; 
 }
 
 body {
-    position: relative; /* Diperlukan agar pseudo-element berfungsi */
-    display: flex;
-     flex-direction: column; /* Ensure content is stacked vertically */
-}
-
-body::before {
-    content: '';
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background-image: url('../images/background-home.png'); /* Pastikan path ke gambar benar */
-    background-size: cover;
-    background-repeat: no-repeat;
-    background-position: center;
-    opacity: 0.2; /* Mengurangi intensitas gambar */
-    z-index: -1; /* Memastikan layer ini berada di belakang konten */
+    font-family: 'Poppins';
+    background-image: url(../images/batik1.png);
+    background-size: 100%;
+    background-color: #F5EFFF;
+    line-height: 1.6;
 }
 
 /* Header */
@@ -189,6 +178,13 @@ body::before {
     padding: 40px 20px;
     margin-top: auto;
     width: 100%;
+}
+
+.link-kosong a {
+    color: #fff !important;
+    text-decoration: none;
+    font-weight: 500;
+    transition: color 0.3s ease;
 }
 .footer .judul h2 {
     font-size: 24px;

@@ -30,37 +30,54 @@ body {
     font-size: 24px;
 }
 
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 3rem 5%; /* Padding diperbesar */
+    background-color: #1e3a5f;
+    color: white;
+    height: 80px; /* Tinggi tetap */
+}
+
 .menu {
-    list-style: none;
     display: flex;
-    gap: 20px;
-}
-
-.menu li a:hover {
-    color: #D4A017; /* Gold */
-}
-
-.navbar ul {
     list-style: none;
-    display: flex;
-    justify-content: center;
-    gap: 60px;
 }
 
-.navbar li a {
-    color: #fff;
+.menu li {
+    margin-left: 2rem; /* Jarak antar menu diperbesar */
+}
+
+.menu a {
+    color: white;
     text-decoration: none;
-    font-weight: 300;
+    font-weight: 500;
     transition: color 0.3s ease;
+    font-size: 1.2rem; /* Ukuran teks menu diperbesar */
+    padding: 0.5rem 1rem; /* Padding tambahan */
 }
 
-.navbar li a.active {
-    font-weight: bold;
-    text-decoration: underline;
+/* Tambahkan style untuk menu aktif */
+.menu a.active {
+    color: #f8cb4a !important;
+    position: relative;
 }
 
-.navbar li a:hover {
-    color: #D4A017; /* Gold */
+.menu a.active::after {
+    content: '';
+    position: absolute;
+    bottom: -8px;
+    left: 0;
+    width: 100%;
+    height: 3px;
+    background-color: #f8cb4a;
+    border-radius: 2px;
+}
+
+/* Modifikasi hover state */
+.menu a:hover {
+    color: #D4A017 !important;
 }
 
 /* Section Quiz */
@@ -104,7 +121,7 @@ body {
 
 .answer-buttons {
     display: grid;
-    grid-template-columns: repeat(2, fr);
+    grid-template-columns: repeat(2, 1fr);
     gap: 30px 60px;
     margin-bottom: 65px;
 }
@@ -166,6 +183,23 @@ body {
     gap: 100px;
 }
 
+.aksara-row {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    text-align: center;
+    gap: 20px;
+}
+
+.penjelasan-aksara {
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 30px;
+    background: #fff;
+    padding: 10px 15px;
+    border-radius: 10px;
+}
+
 .answer-feedback {
     display: flex;
     flex-direction: column;
@@ -189,6 +223,51 @@ body {
     border-radius: 15px;
     font-weight: 450;
 }
+
+.popup-kembali {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.7);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 999;
+}
+
+.popup-content-kembali {
+    background: white;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    text-align: center;
+}
+
+.popup-buttons {
+    margin-top: 20px;
+}
+
+.popup-buttons button {
+    padding: 10px 20px;
+    margin: 0 5px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.popup-buttons button:nth-child(1) {
+    background: #28a745;
+    color: white;
+}
+
+.popup-buttons button:nth-child(2) {
+    background: #dc3545;
+    color: white;
+}
+
+
 
 .popup {
     display: none; /* Tersembunyi secara default */
@@ -280,6 +359,12 @@ body {
     border-bottom: 2px solid #262626; /* Garis putih tipis */
     padding-bottom: 30px;
     margin: 50px 100px;
+}
+.link-kosong a {
+    color: #fff !important;
+    text-decoration: none;
+    font-weight: 500;
+    transition: color 0.3s ease;
 }
 .footer .copyright p {
     font-size: 18px;

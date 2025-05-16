@@ -12,21 +12,10 @@ body {
     display: flex;
     flex-direction: column;
     min-height: 100vh;
-    background-image: url('../images/background-home.png');
+    background-image: url(../images/batik1.png);
     background-size: cover;
     background-position: center;
     position: relative;
-}
-
-body::before {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background-color: rgba(255, 255, 255, 0.8); /* Warna putih transparan */
-    z-index: -1; /* Pastikan layer ini berada di belakang konten */
 }
 
 .container {
@@ -190,7 +179,12 @@ a {
 .spacer {
     height: 200px;
 }
-
+.link-kosong a {
+    color: #fff !important;
+    text-decoration: none;
+    font-weight: 500;
+    transition: color 0.3s ease;
+}
 /* Footer */
 /* Perbaikan footer */
 .footer {

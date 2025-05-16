@@ -40,10 +40,10 @@ if (empty($foto) || !file_exists($foto_path)) {
             <a href="index.php">Sunda<span>Verse</span></a>
         </div>
         <ul class="menu">
-            <li><a href="index.php" id="home-link">Home</a></li>
+            <li><a href="index.php" >Home</a></li>
             <li><a href="../aksara.php">Aksara</a></li>
             <li><a href="../quiz.php">Quiz</a></li>
-            <li><a href="profile.php">Profile</a></li>
+            <li><a href="profile.php" class="active">Profile</a></li>
         </ul>
 </nav>
 
@@ -104,22 +104,23 @@ if (empty($foto) || !file_exists($foto_path)) {
 </div>
 
 <!-- FOOTER -->
-<footer class="footer">
-    <div class="judul">
-        <h2>Sunda<span>Verse</span></h2>
-    </div>
-    <div class="link-kosong">
-        <p>Beranda</p>
-        <p>Tentang Kami</p>
-        <p>Kontak</p>
-    </div>
-    <div class="lokasi">
-        <p>Jl. Sunda Digital No.88, Jawa Barat</p>
-    </div>
-    <div class="copyright">
-        <p>&copy; 2025 SundaVerse. All rights reserved.</p>
-    </div>
-</footer>
+    <section class="footer">
+        <div class="footer-content">
+            <div class="judul">
+                <h2>Sunda<span>Verse</span></h2>
+            </div>
+            <div class="link-kosong">
+                <a href="../faq.html">FAQ</a>
+                <a href="../tos.html">Terms of Service</a>
+            </div>
+            <div class="lokasi">
+                <p>Informatika, Universitas Siliwangi</p>
+            </div>
+            <div class="copyright">
+                <p>&copy; SundaVerse 2025. All Rights Reserved.</p>
+            </div>
+        </div>
+    </section>
 
 <!-- SCRIPT TOGGLER -->
 <script>
