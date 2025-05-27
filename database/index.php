@@ -90,7 +90,7 @@ $username = $_SESSION['username'] ?? ''; // Ambil username dari session jika ada
 
      <section class="sblm-ftr">
         <div class="sblm-content">
-            <p>Bahasa Sunda juga memiliki sistem tulisan sendiri yang dikenal sebagai Aksara Sunda Kuno. Aksara ini digunakan sejak zaman kerajaan dan masih dilestarikan hingga kini. Mau belajar tentang aksara Sunda? Yuk, kunjungin halaman <a href="aksara">Aksara!</a></p>
+            <p>Bahasa Sunda juga memiliki sistem tulisan sendiri yang dikenal sebagai Aksara Sunda Kuno. Aksara ini digunakan sejak zaman kerajaan dan masih dilestarikan hingga kini. Mau belajar tentang aksara Sunda? Yuk, kunjungin halaman <a href="../aksara.php">Aksara!</a></p>
         </div>
     </section>
 

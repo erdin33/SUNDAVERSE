@@ -37,12 +37,8 @@ include 'database/koneksi.php';
         </div>
         
         <div class="puzzle-container">
-            <!-- Area Target - Will be populated dynamically -->
             <div class="target-area">
-                <!-- Targets will be added via JavaScript -->
             </div>
-
-            <!-- Potongan Puzzle - Will be populated dynamically -->
             <div class="pieces">
                 <!-- Pieces will be added via JavaScript -->
             </div>

@@ -2,7 +2,7 @@
 include 'koneksi.php'; // Pastikan koneksi berhasil
 include 'cek_user.php'; 
 include 'skore.php';
-
+include 'peringkat.php'; // Include file peringkat yang baru dibuat
 
 $id_user = $_SESSION['id_user'];
 
@@ -13,7 +13,11 @@ $stmt->bind_param("i", $id_user);
 $stmt->execute();
 $stmt->bind_result($username, $email, $foto);
 $stmt->fetch();
-$stmt->close();// Ambil total skor user
+$stmt->close();
+
+// Ambil peringkat user
+$peringkat_user = hitungPeringkat($koneksi, $id_user);
+$statistik = getStatistikUser($koneksi, $id_user);
 ?>
     
 <!DOCTYPE html>
@@ -41,15 +45,21 @@ $stmt->close();// Ambil total skor user
         <div class="profile-card">
             <div class="profile-picture">
                 <?php if (!empty($foto) && file_exists("../uploads/foto/" . $foto)): ?>
-                    <img src="../uploads/foto/<?= htmlspecialchars($foto) ?>" alt="Foto Profil" width='100' height='100' >
+                    <img src="../uploads/foto/<?= htmlspecialchars($foto) ?>" alt="Foto Profil" class="profile-img">
                 <?php else: ?>
-                    <img src="../images/default_profile.png" alt="Foto Profil">
+                    <div class="default-avatar-icon">
+                        <svg viewBox="0 0 24 24" fill="white" xmlns="http://www.w3.org/2000/svg">
+                            <circle cx="12" cy="8" r="4"/>
+                            <path d="M12 14c-6 0-8 3-8 6v2h16v-2c0-3-2-6-8-6z"/>
+                        </svg>
+                    </div>
                 <?php endif; ?>
             </div>
 
             <h2><?= $_SESSION['username']?></h2>
             <p class="username"><?= $_SESSION['email'] ?></p>
             <div class="score-badge">Total skor: <?= $total_skor ?></div>
+            <div class="score-badge">Peringkat: #<?= $peringkat_user ?? 'N/A' ?></div>
         </div>
         
         <a href="editprofile.php" class="menu-card">
@@ -59,6 +69,15 @@ $stmt->close();// Ambil total skor user
                 </svg>
             </div>
             Ubah Profil
+        </a>
+        
+        <a href="leaderboard.php" class="menu-card">
+            <div class="menu-icon">
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M7.5 21L10 14L4.5 9H12L14.5 2L17 9H25.5L20 14L22.5 21L14.5 17L7.5 21Z" fill="black"/>
+                </svg>
+            </div>
+            Papan Peringkat
         </a>
         
         <a href="../faq.html" class="menu-card">
@@ -87,8 +106,6 @@ $stmt->close();// Ambil total skor user
             </div>
             Keluar
         </a>
-
-
     </div>
     
     <section class="footer">
